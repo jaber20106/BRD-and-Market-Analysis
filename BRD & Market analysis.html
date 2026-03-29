@@ -1,0 +1,3857 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BRD & Market Analysis — আচার ও শুঁটকি অনলাইন বিজনেস</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Tiro+Bangla:ital@0;1&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --green-dark: #1a3d2b;
+    --green-mid: #2d6a4f;
+    --green-accent: #40916c;
+    --green-light: #74c69d;
+    --green-pale: #d8f3dc;
+    --amber: #f4a261;
+    --amber-dark: #e76f51;
+    --cream: #fefae0;
+    --warm-white: #fffdf7;
+    --text-dark: #1b1b1b;
+    --text-mid: #3d3d3a;
+    --text-muted: #6b7280;
+    --border: rgba(45,106,79,0.15);
+    --shadow: rgba(26,61,43,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Hind Siliguri', sans-serif;
+    background: var(--warm-white);
+    color: var(--text-dark);
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    min-height: 100vh;
+    background: var(--green-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(64,145,108,0.25) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(244,162,97,0.12) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .cover-badge {
+    display: inline-block;
+    background: rgba(116,198,157,0.15);
+    border: 1px solid rgba(116,198,157,0.3);
+    color: var(--green-light);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 20px;
+    margin-bottom: 36px;
+  }
+
+  .cover-logo {
+    font-size: 80px;
+    margin-bottom: 24px;
+    filter: drop-shadow(0 4px 20px rgba(116,198,157,0.4));
+  }
+
+  .cover h1 {
+    font-family: 'Tiro Bangla', serif;
+    font-size: clamp(36px, 6vw, 64px);
+    color: #fff;
+    line-height: 1.25;
+    margin-bottom: 16px;
+    font-weight: 400;
+  }
+
+  .cover h1 span {
+    color: var(--amber);
+  }
+
+  .cover .subtitle {
+    font-size: 18px;
+    color: rgba(255,255,255,0.55);
+    max-width: 520px;
+    margin: 0 auto 48px;
+    font-weight: 300;
+  }
+
+  .cover-meta {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .cover-meta-item {
+    text-align: center;
+  }
+
+  .cover-meta-item .label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 4px;
+  }
+
+  .cover-meta-item .value {
+    font-size: 14px;
+    color: rgba(255,255,255,0.75);
+    font-weight: 500;
+  }
+
+  .cover-scroll {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255,255,255,0.3);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .cover-scroll::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse { 0%,100%{opacity:0.3} 50%{opacity:0.8} }
+
+  /* ── NAV ── */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,253,247,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+  }
+
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    overflow-x: auto;
+  }
+
+  .nav a {
+    text-decoration: none;
+    font-size: 13px;
+    color: var(--text-muted);
+    padding: 16px 18px;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    font-weight: 500;
+  }
+
+  .nav a:hover { color: var(--green-mid); border-bottom-color: var(--green-light); }
+
+  /* ── MAIN CONTENT ── */
+  .main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px 80px;
+  }
+
+  /* ── SECTION ── */
+  .section {
+    padding: 70px 0 50px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section:last-child { border-bottom: none; }
+
+  .section-number {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--green-accent);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Tiro Bangla', serif;
+    font-size: clamp(24px, 4vw, 36px);
+    color: var(--green-dark);
+    margin-bottom: 28px;
+    font-weight: 400;
+    line-height: 1.3;
+  }
+
+  .section-intro {
+    font-size: 17px;
+    color: var(--text-mid);
+    max-width: 700px;
+    line-height: 1.9;
+    margin-bottom: 40px;
+  }
+
+  /* ── EXEC SUMMARY CARDS ── */
+  .exec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .exec-card {
+    background: var(--green-pale);
+    border: 1px solid rgba(64,145,108,0.2);
+    border-radius: 14px;
+    padding: 24px 20px;
+    text-align: center;
+  }
+
+  .exec-card .icon { font-size: 28px; margin-bottom: 10px; }
+  .exec-card .num {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--green-dark);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .exec-card .desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  /* ── PROBLEM STATEMENT ── */
+  .problem-box {
+    background: linear-gradient(135deg, #fff8f0, #fff3e8);
+    border: 1px solid rgba(231,111,81,0.2);
+    border-left: 4px solid var(--amber-dark);
+    border-radius: 0 12px 12px 0;
+    padding: 28px 32px;
+    margin-bottom: 32px;
+  }
+
+  .problem-box h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--amber-dark);
+    margin-bottom: 12px;
+  }
+
+  .problem-box p {
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 1.85;
+  }
+
+  /* ── MAP ── */
+  .map-container {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 32px;
+    overflow: hidden;
+  }
+
+  .map-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--green-dark);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .bd-map {
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* ── TWO COL ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
+
+  .info-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 22px;
+  }
+
+  .info-card h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--green-dark);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .info-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .info-card ul li {
+    font-size: 14px;
+    color: var(--text-mid);
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .info-card ul li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--green-accent);
+    font-weight: 700;
+  }
+
+  /* ── PRODUCT TABLE ── */
+  .product-phases {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .phase-row {
+    display: grid;
+    grid-template-columns: 120px 1fr auto;
+    align-items: center;
+    gap: 20px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    transition: box-shadow 0.2s;
+  }
+
+  .phase-row:hover { box-shadow: 0 4px 20px var(--shadow); }
+
+  .phase-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .phase-badge.p1 { background: var(--green-pale); color: var(--green-dark); }
+  .phase-badge.p2 { background: #fef3c7; color: #92400e; }
+  .phase-badge.p3 { background: #fce7f3; color: #9d174d; }
+
+  .phase-products {
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.65;
+  }
+
+  .phase-products strong {
+    display: block;
+    color: var(--text-dark);
+    font-size: 15px;
+    margin-bottom: 3px;
+  }
+
+  .phase-timeline {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  /* ── FEATURES GRID ── */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .feature-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px var(--shadow);
+  }
+
+  .feature-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--green-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 14px;
+  }
+
+  .feature-card h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--green-dark);
+    margin-bottom: 8px;
+  }
+
+  .feature-card p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  /* ── TECH STACK ── */
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .tech-item {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .tech-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .tech-dot.frontend { background: #3b82f6; }
+  .tech-dot.backend  { background: #8b5cf6; }
+  .tech-dot.payment  { background: var(--amber); }
+  .tech-dot.delivery { background: var(--green-accent); }
+
+  .tech-item .tech-label { font-size: 13px; color: var(--text-mid); font-weight: 500; }
+  .tech-item .tech-role  { font-size: 11px; color: var(--text-muted); }
+
+  /* ── JOURNEY ── */
+  .journey {
+    display: flex;
+    gap: 0;
+    margin-bottom: 40px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+
+  .journey-step {
+    flex: 1;
+    min-width: 130px;
+    text-align: center;
+    position: relative;
+    padding: 0 8px;
+  }
+
+  .journey-step::after {
+    content: '';
+    position: absolute;
+    top: 22px;
+    right: -1px;
+    width: 50%;
+    height: 2px;
+    background: var(--border);
+  }
+
+  .journey-step::before {
+    content: '';
+    position: absolute;
+    top: 22px;
+    left: -1px;
+    width: 50%;
+    height: 2px;
+    background: var(--border);
+  }
+
+  .journey-step:first-child::before,
+  .journey-step:last-child::after { display: none; }
+
+  .journey-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--green-pale);
+    border: 2px solid var(--green-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin: 0 auto 10px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .journey-step h4 { font-size: 13px; font-weight: 600; color: var(--green-dark); margin-bottom: 4px; }
+  .journey-step p  { font-size: 11px; color: var(--text-muted); line-height: 1.5; }
+
+  /* ── REVENUE MODEL ── */
+  .revenue-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  @media (max-width: 700px) { .revenue-grid { grid-template-columns: 1fr; } }
+
+  .rev-card {
+    border-radius: 14px;
+    padding: 24px 20px;
+    border: 1px solid transparent;
+  }
+
+  .rev-card.primary   { background: var(--green-dark); color: #fff; }
+  .rev-card.secondary { background: var(--cream); border-color: var(--border); }
+  .rev-card.tertiary  { background: #fff8f0; border-color: rgba(244,162,97,0.25); }
+
+  .rev-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
+  .rev-card p  { font-size: 13px; opacity: 0.75; line-height: 1.65; }
+  .rev-card .rev-icon { font-size: 24px; margin-bottom: 12px; }
+
+  /* ── RISKS ── */
+  .risk-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin-bottom: 32px;
+  }
+
+  .risk-table th {
+    text-align: left;
+    padding: 12px 16px;
+    background: var(--green-pale);
+    color: var(--green-dark);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .risk-table th:first-child { border-radius: 8px 0 0 0; }
+  .risk-table th:last-child  { border-radius: 0 8px 0 0; }
+
+  .risk-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-mid);
+    vertical-align: top;
+  }
+
+  .risk-level {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .risk-level.high   { background: #fee2e2; color: #991b1b; }
+  .risk-level.medium { background: #fef3c7; color: #92400e; }
+  .risk-level.low    { background: var(--green-pale); color: var(--green-dark); }
+
+  /* ── ROADMAP ── */
+  .roadmap {
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 32px;
+  }
+
+  .roadmap::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    bottom: 10px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--green-accent), var(--green-light), rgba(116,198,157,0.2));
+  }
+
+  .roadmap-item {
+    position: relative;
+    margin-bottom: 32px;
+  }
+
+  .roadmap-dot {
+    position: absolute;
+    left: -36px;
+    top: 4px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid var(--green-accent);
+    background: var(--warm-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--green-accent);
+  }
+
+  .roadmap-item h3 { font-size: 16px; font-weight: 600; color: var(--green-dark); margin-bottom: 4px; }
+  .roadmap-item .phase-tag {
+    display: inline-block;
+    font-size: 11px;
+    color: var(--green-accent);
+    background: var(--green-pale);
+    padding: 2px 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .roadmap-item p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--green-dark);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 40px;
+    font-size: 13px;
+  }
+
+  .footer strong { color: rgba(255,255,255,0.8); }
+
+  /* ── QUOTE ── */
+  .quote-block {
+    background: var(--green-pale);
+    border-radius: 14px;
+    padding: 28px 32px;
+    margin-bottom: 32px;
+    border-left: 4px solid var(--green-accent);
+  }
+
+  .quote-block p {
+    font-family: 'Tiro Bangla', serif;
+    font-size: 18px;
+    color: var(--green-dark);
+    line-height: 1.9;
+    font-style: italic;
+  }
+
+  /* ── KPI ROW ── */
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .kpi-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .kpi-card .kpi-value {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--green-dark);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .kpi-card .kpi-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .kpi-card .kpi-icon { font-size: 20px; margin-bottom: 8px; }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    .main { padding: 0 20px 60px; }
+    .nav  { padding: 0 12px; }
+    .phase-row { grid-template-columns: 1fr; }
+    .phase-timeline { text-align: left; }
+  }
+
+
+/* ════════════════════════════════════════
+   ADDITIONAL STYLES FROM MARKET ANALYSIS
+   ════════════════════════════════════════ */
+
+  :root {
+    --green-dark: #1a3d2b;
+    --green-mid: #2d6a4f;
+    --green-accent: #40916c;
+    --green-light: #74c69d;
+    --green-pale: #d8f3dc;
+    --amber: #f4a261;
+    --amber-dark: #e76f51;
+    --cream: #fefae0;
+    --warm-white: #fffdf7;
+    --text-dark: #1b1b1b;
+    --text-mid: #3d3d3a;
+    --text-muted: #6b7280;
+    --border: rgba(45,106,79,0.15);
+    --shadow: rgba(26,61,43,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Hind Siliguri', sans-serif;
+    background: var(--warm-white);
+    color: var(--text-dark);
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  /* COVER */
+  .cover {
+    min-height: 100vh;
+    background: var(--green-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(64,145,108,0.25) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(244,162,97,0.12) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .cover-badge {
+    display: inline-block;
+    background: rgba(116,198,157,0.15);
+    border: 1px solid rgba(116,198,157,0.3);
+    color: var(--green-light);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 20px;
+    margin-bottom: 36px;
+  }
+
+  .cover-logo { font-size: 80px; margin-bottom: 24px; filter: drop-shadow(0 4px 20px rgba(116,198,157,0.4)); }
+
+  .cover h1 {
+    font-family: 'Tiro Bangla', serif;
+    font-size: clamp(36px, 6vw, 64px);
+    color: #fff;
+    line-height: 1.25;
+    margin-bottom: 16px;
+    font-weight: 400;
+  }
+
+  .cover h1 span { color: var(--amber); }
+
+  .cover .subtitle {
+    font-size: 18px;
+    color: rgba(255,255,255,0.55);
+    max-width: 560px;
+    margin: 0 auto 48px;
+    font-weight: 300;
+  }
+
+  .cover-meta { display: flex; gap: 40px; flex-wrap: wrap; justify-content: center; }
+  .cover-meta-item { text-align: center; }
+  .cover-meta-item .label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 4px; }
+  .cover-meta-item .value { font-size: 14px; color: rgba(255,255,255,0.75); font-weight: 500; }
+
+  .cover-scroll {
+    position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    color: rgba(255,255,255,0.3); font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  }
+  .cover-scroll::after {
+    content: ''; display: block; width: 1px; height: 40px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse { 0%,100%{opacity:0.3} 50%{opacity:0.8} }
+
+  /* NAV */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,253,247,0.95); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border); padding: 0 40px;
+  }
+  .nav-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; overflow-x: auto;
+  }
+  .nav a {
+    text-decoration: none; font-size: 13px; color: var(--text-muted);
+    padding: 16px 18px; white-space: nowrap;
+    border-bottom: 2px solid transparent; transition: all 0.2s; font-weight: 500;
+  }
+  .nav a:hover { color: var(--green-mid); border-bottom-color: var(--green-light); }
+
+  /* MAIN */
+  .main { max-width: 1100px; margin: 0 auto; padding: 0 40px 80px; }
+
+  /* SECTION */
+  .section { padding: 70px 0 50px; border-bottom: 1px solid var(--border); }
+  .section:last-child { border-bottom: none; }
+
+  .section-number {
+    font-size: 11px; font-weight: 600; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--green-accent); margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Tiro Bangla', serif;
+    font-size: clamp(24px, 4vw, 36px);
+    color: var(--green-dark); margin-bottom: 28px; font-weight: 400; line-height: 1.3;
+  }
+  .section-intro {
+    font-size: 17px; color: var(--text-mid);
+    max-width: 700px; line-height: 1.9; margin-bottom: 40px;
+  }
+
+  /* STAT CARDS */
+  .exec-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px; margin-bottom: 40px;
+  }
+  .exec-card {
+    background: var(--green-pale); border: 1px solid rgba(64,145,108,0.2);
+    border-radius: 14px; padding: 24px 20px; text-align: center;
+  }
+  .exec-card .icon { font-size: 28px; margin-bottom: 10px; }
+  .exec-card .num { font-size: 28px; font-weight: 700; color: var(--green-dark); line-height: 1; margin-bottom: 6px; }
+  .exec-card .desc { font-size: 13px; color: var(--text-muted); font-weight: 500; }
+
+  /* QUOTE */
+  .quote-block {
+    background: var(--green-pale); border-radius: 14px;
+    padding: 28px 32px; margin-bottom: 32px;
+    border-left: 4px solid var(--green-accent);
+  }
+  .quote-block p {
+    font-family: 'Tiro Bangla', serif;
+    font-size: 18px; color: var(--green-dark); line-height: 1.9; font-style: italic;
+  }
+
+  /* TWO COL */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px; }
+  @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
+
+  /* INFO CARD */
+  .info-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 24px 22px; }
+  .info-card h3 { font-size: 15px; font-weight: 600; color: var(--green-dark); margin-bottom: 14px; }
+  .info-card ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+  .info-card ul li { font-size: 14px; color: var(--text-mid); padding-left: 20px; position: relative; line-height: 1.6; }
+  .info-card ul li::before { content: '›'; position: absolute; left: 0; color: var(--green-accent); font-weight: 700; }
+
+  /* PROBLEM BOX */
+  .problem-box {
+    background: linear-gradient(135deg, #fff8f0, #fff3e8);
+    border: 1px solid rgba(231,111,81,0.2);
+    border-left: 4px solid var(--amber-dark);
+    border-radius: 0 12px 12px 0;
+    padding: 28px 32px; margin-bottom: 32px;
+  }
+  .problem-box h3 { font-size: 16px; font-weight: 600; color: var(--amber-dark); margin-bottom: 12px; }
+  .problem-box p { font-size: 15px; color: var(--text-mid); line-height: 1.85; }
+
+  /* MARKET SIZE CARDS */
+  .market-size-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 16px; margin-bottom: 32px;
+  }
+  @media (max-width: 700px) { .market-size-grid { grid-template-columns: 1fr; } }
+
+  .msize-card {
+    border-radius: 16px; padding: 28px 22px; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .msize-card.big { background: var(--green-dark); color: #fff; }
+  .msize-card.mid { background: var(--cream); border: 1px solid var(--border); }
+  .msize-card.alt { background: #fff8f0; border: 1px solid rgba(244,162,97,0.25); }
+
+  .msize-card .msize-icon { font-size: 30px; margin-bottom: 14px; }
+  .msize-card .msize-num {
+    font-size: 32px; font-weight: 700; line-height: 1; margin-bottom: 6px;
+  }
+  .msize-card.big .msize-num { color: var(--green-light); }
+  .msize-card.mid .msize-num { color: var(--green-dark); }
+  .msize-card.alt .msize-num { color: var(--amber-dark); }
+
+  .msize-card .msize-label { font-size: 14px; font-weight: 500; margin-bottom: 8px; }
+  .msize-card.big .msize-label { color: rgba(255,255,255,0.8); }
+  .msize-card.mid .msize-label { color: var(--text-mid); }
+  .msize-card.alt .msize-label { color: var(--text-mid); }
+
+  .msize-card .msize-source { font-size: 11px; opacity: 0.55; }
+
+  /* STEP CARDS — Research Process */
+  .steps-list { display: flex; flex-direction: column; gap: 0; margin-bottom: 32px; }
+
+  .step-item {
+    display: grid; grid-template-columns: 60px 1fr;
+    gap: 0; background: #fff;
+    border: 1px solid var(--border); border-radius: 0;
+    overflow: hidden; transition: box-shadow 0.2s;
+  }
+  .step-item:first-child { border-radius: 14px 14px 0 0; }
+  .step-item:last-child { border-radius: 0 0 14px 14px; }
+  .step-item + .step-item { border-top: none; }
+  .step-item:hover { box-shadow: 0 4px 20px var(--shadow); z-index: 1; position: relative; }
+
+  .step-num-col {
+    background: var(--green-pale); display: flex;
+    align-items: flex-start; justify-content: center;
+    padding: 28px 0 0;
+    font-size: 13px; font-weight: 700; color: var(--green-accent);
+    letter-spacing: 1px;
+  }
+
+  .step-body { padding: 28px 28px; }
+  .step-tag {
+    display: inline-block; font-size: 11px; font-weight: 600;
+    color: var(--green-accent); background: var(--green-pale);
+    padding: 2px 10px; border-radius: 10px; margin-bottom: 8px;
+  }
+  .step-title-text { font-size: 18px; font-weight: 600; color: var(--green-dark); margin-bottom: 10px; }
+  .step-desc { font-size: 14px; color: var(--text-mid); line-height: 1.75; margin-bottom: 16px; }
+
+  .step-tasks { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .step-tasks li {
+    font-size: 13px; color: var(--text-mid);
+    padding-left: 22px; position: relative; line-height: 1.6;
+  }
+  .step-tasks li::before {
+    content: '✓'; position: absolute; left: 0;
+    color: var(--green-accent); font-weight: 700; font-size: 12px;
+  }
+
+  .step-tools {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px;
+  }
+  .step-tool-pill {
+    font-size: 12px; padding: 3px 12px; border-radius: 12px;
+    background: var(--cream); border: 1px solid var(--border);
+    color: var(--text-muted); font-weight: 500;
+  }
+
+  .step-tip {
+    margin-top: 16px; background: var(--green-pale);
+    border-radius: 10px; padding: 12px 16px;
+    font-size: 13px; color: var(--green-dark); line-height: 1.6;
+  }
+  .step-tip strong { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--green-accent); margin-bottom: 4px; }
+
+  .step-warn {
+    margin-top: 12px; background: #fff8f0;
+    border-radius: 10px; padding: 12px 16px;
+    font-size: 13px; color: #92400e; line-height: 1.6;
+    border-left: 3px solid var(--amber);
+  }
+  .step-warn strong { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--amber-dark); margin-bottom: 4px; }
+
+  /* EXAMPLE / TEMPLATE BOX */
+  .template-box {
+    background: #f8faf9; border: 1px solid var(--border);
+    border-radius: 12px; padding: 20px 22px; margin-top: 16px;
+  }
+  .template-box .t-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.5px;
+    text-transform: uppercase; color: var(--green-accent); margin-bottom: 10px;
+  }
+  .template-box pre {
+    font-family: 'Hind Siliguri', sans-serif;
+    font-size: 13px; color: var(--text-mid);
+    line-height: 1.75; white-space: pre-wrap;
+  }
+
+  /* COMPETITOR TABLE */
+  .comp-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 32px; }
+  .comp-table th {
+    text-align: left; padding: 12px 16px;
+    background: var(--green-pale); color: var(--green-dark);
+    font-size: 12px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;
+  }
+  .comp-table th:first-child { border-radius: 8px 0 0 0; }
+  .comp-table th:last-child  { border-radius: 0 8px 0 0; }
+  .comp-table td { padding: 14px 16px; border-bottom: 1px solid var(--border); color: var(--text-mid); vertical-align: top; }
+  .comp-table tr:last-child td { border-bottom: none; }
+  .comp-table tr:hover td { background: #f9fdfb; }
+
+  .badge-pill {
+    display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 12px; font-weight: 600;
+  }
+  .bp-green { background: var(--green-pale); color: var(--green-dark); }
+  .bp-amber { background: #fef3c7; color: #92400e; }
+  .bp-red   { background: #fee2e2; color: #991b1b; }
+
+  /* SEGMENT CARDS */
+  .segment-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-bottom: 32px; }
+  @media (max-width: 700px) { .segment-grid { grid-template-columns: 1fr; } }
+
+  .seg-card { border-radius: 14px; padding: 24px 20px; border: 1px solid var(--border); background: #fff; }
+  .seg-card.s1 { border-top: 4px solid var(--green-accent); }
+  .seg-card.s2 { border-top: 4px solid var(--amber); }
+  .seg-card.s3 { border-top: 4px solid #6366f1; }
+
+  .seg-icon { font-size: 26px; margin-bottom: 12px; }
+  .seg-title { font-size: 16px; font-weight: 600; color: var(--green-dark); margin-bottom: 4px; }
+  .seg-sub { font-size: 12px; color: var(--text-muted); margin-bottom: 14px; }
+  .seg-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+  .seg-row:last-child { border-bottom: none; }
+  .seg-row .sk { color: var(--text-muted); }
+  .seg-row .sv { font-weight: 500; color: var(--text-dark); }
+
+  /* PRICING TABLE */
+  .price-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 32px; }
+  .price-table th {
+    text-align: left; padding: 12px 16px;
+    background: var(--green-dark); color: rgba(255,255,255,0.85);
+    font-size: 12px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;
+  }
+  .price-table th:first-child { border-radius: 8px 0 0 0; }
+  .price-table th:last-child  { border-radius: 0 8px 0 0; }
+  .price-table td { padding: 14px 16px; border-bottom: 1px solid var(--border); color: var(--text-mid); vertical-align: middle; }
+  .price-table tr:hover td { background: #f9fdfb; }
+  .price-table tr:last-child td { border-bottom: none; }
+  .price-num { font-weight: 700; color: var(--green-dark); font-size: 15px; }
+  .profit-num { font-weight: 700; color: var(--green-accent); }
+
+  /* SWOT */
+  .swot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 32px; }
+  .swot-card { border-radius: 14px; padding: 24px 22px; }
+  .swot-card.strength { background: var(--green-pale); border: 1px solid rgba(64,145,108,0.25); }
+  .swot-card.weakness { background: #fff8f0; border: 1px solid rgba(244,162,97,0.25); }
+  .swot-card.opportunity { background: #eff6ff; border: 1px solid rgba(59,130,246,0.2); }
+  .swot-card.threat { background: #fef2f2; border: 1px solid rgba(239,68,68,0.2); }
+
+  .swot-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 12px; }
+  .swot-card.strength h3 { color: var(--green-dark); }
+  .swot-card.weakness h3 { color: #92400e; }
+  .swot-card.opportunity h3 { color: #1d4ed8; }
+  .swot-card.threat h3 { color: #b91c1c; }
+
+  .swot-card ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .swot-card ul li { font-size: 13px; color: var(--text-mid); padding-left: 18px; position: relative; line-height: 1.6; }
+  .swot-card.strength ul li::before { content: '↑'; position: absolute; left: 0; color: var(--green-accent); font-weight: 700; }
+  .swot-card.weakness ul li::before { content: '↓'; position: absolute; left: 0; color: var(--amber-dark); font-weight: 700; }
+  .swot-card.opportunity ul li::before { content: '→'; position: absolute; left: 0; color: #3b82f6; font-weight: 700; }
+  .swot-card.threat ul li::before { content: '!'; position: absolute; left: 0; color: #ef4444; font-weight: 700; }
+
+  /* ROADMAP */
+  .roadmap { position: relative; padding-left: 40px; margin-bottom: 32px; }
+  .roadmap::before {
+    content: ''; position: absolute; left: 10px; top: 10px; bottom: 10px; width: 2px;
+    background: linear-gradient(to bottom, var(--green-accent), var(--green-light), rgba(116,198,157,0.2));
+  }
+  .roadmap-item { position: relative; margin-bottom: 32px; }
+  .roadmap-dot {
+    position: absolute; left: -36px; top: 4px;
+    width: 22px; height: 22px; border-radius: 50%;
+    border: 2px solid var(--green-accent); background: var(--warm-white);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 700; color: var(--green-accent);
+  }
+  .roadmap-item h3 { font-size: 16px; font-weight: 600; color: var(--green-dark); margin-bottom: 4px; }
+  .roadmap-item .phase-tag {
+    display: inline-block; font-size: 11px; color: var(--green-accent);
+    background: var(--green-pale); padding: 2px 10px; border-radius: 10px;
+    margin-bottom: 10px; font-weight: 600;
+  }
+  .roadmap-item p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
+  /* KPI */
+  .kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap: 16px; margin-bottom: 32px; }
+  .kpi-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; }
+  .kpi-card .kpi-icon { font-size: 20px; margin-bottom: 8px; }
+  .kpi-card .kpi-value { font-size: 26px; font-weight: 700; color: var(--green-dark); line-height: 1; margin-bottom: 6px; }
+  .kpi-card .kpi-label { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+
+  /* FOOTER */
+  .footer { background: var(--green-dark); color: rgba(255,255,255,0.5); text-align: center; padding: 40px; font-size: 13px; }
+  .footer strong { color: rgba(255,255,255,0.8); }
+
+  @media (max-width: 600px) {
+    .main { padding: 0 20px 60px; }
+    .nav  { padding: 0 12px; }
+    .swot-grid { grid-template-columns: 1fr; }
+    .market-size-grid { grid-template-columns: 1fr; }
+    .segment-grid { grid-template-columns: 1fr; }
+  }
+
+
+/* ════════════════════════════════════════
+   TAB SWITCHER — PORTAL SYSTEM
+   ════════════════════════════════════════ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Hide/show docs */
+.doc-panel { display: none; }
+.doc-panel.active { display: block; }
+
+/* Portal bar */
+.portal-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: rgba(26, 61, 43, 0.97);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(116,198,157,0.2);
+  display: flex;
+  align-items: stretch;
+  height: 60px;
+  box-shadow: 0 -4px 30px rgba(0,0,0,0.25);
+}
+
+.portal-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  font-family: 'Hind Siliguri', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.45);
+  border: none;
+  background: none;
+  border-top: 3px solid transparent;
+  transition: all 0.25s;
+  padding: 0 20px;
+  letter-spacing: 0.3px;
+  position: relative;
+}
+
+.portal-tab:hover {
+  color: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.04);
+}
+
+.portal-tab.active {
+  color: #fff;
+  border-top-color: var(--green-light);
+  background: rgba(116,198,157,0.08);
+}
+
+.portal-tab .tab-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.portal-tab .tab-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+}
+
+.portal-tab .tab-title {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.portal-tab .tab-subtitle {
+  font-size: 10px;
+  font-weight: 400;
+  opacity: 0.55;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.portal-tab.active .tab-subtitle {
+  opacity: 0.7;
+  color: var(--green-light);
+}
+
+.portal-divider {
+  width: 1px;
+  background: rgba(255,255,255,0.1);
+  margin: 12px 0;
+  flex-shrink: 0;
+}
+
+/* Bottom padding so content not hidden behind portal bar */
+body { padding-bottom: 60px; }
+
+/* Transition animation */
+.doc-panel {
+  animation: fadePanel 0.3s ease;
+}
+
+@keyframes fadePanel {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Active nav indicator — pulse dot */
+.portal-tab.active::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green-light);
+  animation: pulseDot 2s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.6); }
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .portal-tab .tab-subtitle { display: none; }
+  .portal-tab .tab-title { font-size: 12px; }
+  .portal-tab .tab-icon { font-size: 16px; }
+  .portal-tab { gap: 7px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════ -->
+<!--  DOC PANEL 1 — BRD                    -->
+<!-- ═══════════════════════════════════════ -->
+<div class="doc-panel active" id="panel-brd">
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-badge">Business Requirements Document</div>
+  <div class="cover-logo">🥫</div>
+  <h1>আচার ও শুঁটকি<br><span>অনলাইন বিজনেস</span></h1>
+  <p class="subtitle">চট্টগ্রামের ঐতিহ্যবাহী স্বাদ, সারা বাংলাদেশে পৌঁছে দেওয়ার পরিকল্পনা</p>
+  <div class="cover-meta">
+    <div class="cover-meta-item"><div class="label">ডকুমেন্ট ভার্সন</div><div class="value">v1.0</div></div>
+    <div class="cover-meta-item"><div class="label">তারিখ</div><div class="value">মার্চ ২০২৬</div></div>
+    <div class="cover-meta-item"><div class="label">ক্যাটাগরি</div><div class="value">E-Commerce / Food</div></div>
+    <div class="cover-meta-item"><div class="label">মার্কেট</div><div class="value">বাংলাদেশ</div></div>
+  </div>
+  <div class="cover-scroll"></div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#summary">সারসংক্ষেপ</a>
+    <a href="#problem">সমস্যা</a>
+    <a href="#market">মার্কেট</a>
+    <a href="#product">পণ্য</a>
+    <a href="#features">ওয়েবসাইট</a>
+    <a href="#journey">কাস্টমার জার্নি</a>
+    <a href="#revenue">রেভিনিউ</a>
+    <a href="#roadmap">রোডম্যাপ</a>
+    <a href="#risks">ঝুঁকি</a>
+    <a href="#kpi">KPI</a>
+  </div>
+</nav>
+
+<div class="main">
+
+  <!-- 1. EXECUTIVE SUMMARY -->
+  <section class="section" id="summary">
+    <div class="section-number">সেকশন ০১</div>
+    <h2 class="section-title">এক্সিকিউটিভ সারসংক্ষেপ</h2>
+    <p class="section-intro">
+      এই পরিকল্পনার লক্ষ্য হলো চট্টগ্রাম ও কক্সবাজারের বিখ্যাত আচার ও শুঁটকি পণ্য একটি ই-কমার্স ওয়েবসাইটের মাধ্যমে সারা বাংলাদেশে বিক্রয় করা। বাংলাদেশের অধিকাংশ জেলায় মানসম্পন্ন আচার ও শুঁটকির সহজলভ্যতা নেই — এই শূন্যস্থান পূরণ করাই আমাদের মূল ব্যবসায়িক সুযোগ।
+    </p>
+    <div class="exec-grid">
+      <div class="exec-card">
+        <div class="icon">🗺️</div>
+        <div class="num">৬৪</div>
+        <div class="desc">জেলায় ডেলিভারি লক্ষ্যমাত্রা</div>
+      </div>
+      <div class="exec-card">
+        <div class="icon">🥒</div>
+        <div class="num">৩০+</div>
+        <div class="desc">আচারের ভ্যারাইটি (ফেজ ১)</div>
+      </div>
+      <div class="exec-card">
+        <div class="icon">🐟</div>
+        <div class="num">২০+</div>
+        <div class="desc">শুঁটকির ধরন (ফেজ ১)</div>
+      </div>
+      <div class="exec-card">
+        <div class="icon">🚀</div>
+        <div class="num">৬ মাস</div>
+        <div class="desc">প্রথম ফেজ লঞ্চ টার্গেট</div>
+      </div>
+    </div>
+    <div class="quote-block">
+      <p>"চট্টগ্রামের মানুষ যে আচার ও শুঁটকির স্বাদে বড় হয়েছে — সেই একই স্বাদ রাজশাহী, সিলেট বা ময়মনসিংহের মানুষও পাওয়ার অধিকার রাখে।"</p>
+    </div>
+  </section>
+
+  <!-- 2. PROBLEM STATEMENT -->
+  <section class="section" id="problem">
+    <div class="section-number">সেকশন ০২</div>
+    <h2 class="section-title">সমস্যা ও সুযোগ</h2>
+    <p class="section-intro">
+      বাংলাদেশের বাজারে একটি স্পষ্ট সমস্যা বিদ্যমান — মানসম্পন্ন আচার ও শুঁটকি পণ্য শুধুমাত্র নির্দিষ্ট অঞ্চলে সীমাবদ্ধ। এটি একটি বড় বিজনেস অপরচুনিটি।
+    </p>
+
+    <div class="problem-box">
+      <h3>🚨 মূল সমস্যা</h3>
+      <p>চট্টগ্রাম ও কক্সবাজারের বাইরের জেলাগুলোতে ভালো মানের আচার ও শুঁটকি পাওয়া কঠিন। স্থানীয় বাজারে যা পাওয়া যায় তা অনেক সময় ভেজাল বা মানহীন। অনলাইনে অর্ডার করলেও বিশ্বস্ত কোনো নির্দিষ্ট জায়গা নেই যেখান থেকে নিশ্চিন্তে কেনা যায়।</p>
+    </div>
+
+    <div class="two-col">
+      <div class="info-card">
+        <h3>😓 গ্রাহকের ব্যথা</h3>
+        <ul>
+          <li>ঢাকা বা অন্য জেলায় থাকলে চট্টগ্রামের আচার-শুঁটকি মিস করেন</li>
+          <li>বাজারে প্যাকেটজাত পণ্যে ভেজালের আশঙ্কা থাকে</li>
+          <li>বিশ্বস্ত সোর্স না থাকায় কেনার আগে দ্বিধায় পড়তে হয়</li>
+          <li>প্রবাসী বাংলাদেশিরা দেশ থেকে আনাতে পারেন না সহজে</li>
+          <li>হোম ডেলিভারির সুবিধা নেই বেশিরভাগ ক্ষেত্রে</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>✅ আমাদের সমাধান</h3>
+        <ul>
+          <li>সরাসরি উৎস থেকে সংগ্রহ করা খাঁটি পণ্য</li>
+          <li>অনলাইনে অর্ডার করে ঘরে বসে পাওয়ার সুবিধা</li>
+          <li>সারাদেশে নির্ভরযোগ্য কুরিয়ার ডেলিভারি</li>
+          <li>স্বচ্ছ মূল্য ও উপাদানের তালিকা</li>
+          <li>নিজের পছন্দমতো অর্ডার ও উপহার প্যাকেজিং অপশন</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="problem-box" style="background: linear-gradient(135deg, #f0f4ff, #eaf0ff); border-color: rgba(99,102,241,0.2); border-left-color: #6366f1;">
+      <h3 style="color: #4338ca;">🔒 সমস্যা ৩ — Trust Issue (New Brand)</h3>
+      <p>মানুষ খাবারে সহজে বিশ্বাস করে না।</p>
+      <div style="margin-top: 14px;">
+        <p style="font-size: 14px; font-weight: 600; color: #4338ca; margin-bottom: 8px;">👉 সমাধান:</p>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 6px; padding-left: 8px;">
+          <li style="font-size: 14px; color: var(--text-mid); padding-left: 18px; position: relative;">
+            <span style="position: absolute; left: 0; color: #6366f1; font-weight: 700;">›</span>
+            ভিডিও প্রমাণ (প্রক্রিয়াকরণ ও প্যাকিং দেখানো)
+          </li>
+          <li style="font-size: 14px; color: var(--text-mid); padding-left: 18px; position: relative;">
+            <span style="position: absolute; left: 0; color: #6366f1; font-weight: 700;">›</span>
+            কাস্টমার রিভিউ ও ফিডব্যাক প্রকাশ করা
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. MARKET ANALYSIS -->
+  <section class="section" id="market">
+    <div class="section-number">সেকশন ০৩</div>
+    <h2 class="section-title">মার্কেট অ্যানালাইসিস</h2>
+    <p class="section-intro">
+      বাংলাদেশের ৬৪ জেলার মধ্যে চট্টগ্রাম ও কক্সবাজার আচার ও শুঁটকির প্রধান উৎস। বাকি ৬২ জেলাই আমাদের সম্ভাব্য বাজার।
+    </p>
+
+    <div class="map-container">
+      <div class="map-title">🗺️ টার্গেট মার্কেট — বাংলাদেশের বিভাগভিত্তিক সুযোগ</div>
+      <svg class="bd-map" viewBox="0 0 540 480" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+
+        <!-- Bangladesh simplified shape -->
+        <!-- Rajshahi -->
+        <ellipse cx="160" cy="165" rx="68" ry="50" fill="#d8f3dc" stroke="#40916c" stroke-width="1"/>
+        <text x="160" y="160" text-anchor="middle" font-size="13" font-weight="600" fill="#1a3d2b" font-family="Hind Siliguri, sans-serif">রাজশাহী</text>
+        <text x="160" y="176" text-anchor="middle" font-size="11" fill="#2d6a4f" font-family="Hind Siliguri, sans-serif">বিভাগ</text>
+
+        <!-- Rangpur -->
+        <ellipse cx="165" cy="82" rx="62" ry="42" fill="#d8f3dc" stroke="#40916c" stroke-width="1"/>
+        <text x="165" y="77" text-anchor="middle" font-size="13" font-weight="600" fill="#1a3d2b" font-family="Hind Siliguri, sans-serif">রংপুর</text>
+        <text x="165" y="93" text-anchor="middle" font-size="11" fill="#2d6a4f" font-family="Hind Siliguri, sans-serif">বিভাগ</text>
+
+        <!-- Mymensingh -->
+        <ellipse cx="295" cy="120" rx="55" ry="42" fill="#d8f3dc" stroke="#40916c" stroke-width="1"/>
+        <text x="295" y="115" text-anchor="middle" font-size="12" font-weight="600" fill="#1a3d2b" font-family="Hind Siliguri, sans-serif">ময়মনসিংহ</text>
+        <text x="295" y="131" text-anchor="middle" font-size="11" fill="#2d6a4f" font-family="Hind Siliguri, sans-serif">বিভাগ</text>
+
+        <!-- Sylhet -->
+        <ellipse cx="390" cy="118" rx="55" ry="42" fill="#d8f3dc" stroke="#40916c" stroke-width="1"/>
+        <text x="390" y="113" text-anchor="middle" font-size="13" font-weight="600" fill="#1a3d2b" font-family="Hind Siliguri, sans-serif">সিলেট</text>
+        <text x="390" y="129" text-anchor="middle" font-size="11" fill="#2d6a4f" font-family="Hind Siliguri, sans-serif">বিভাগ</text>
+
+        <!-- Dhaka -->
+        <ellipse cx="280" cy="228" rx="65" ry="52" fill="#d8f3dc" stroke="#40916c" stroke-width="1.5"/>
+        <text x="280" y="222" text-anchor="middle" font-size="14" font-weight="700" fill="#1a3d2b" font-family="Hind Siliguri, sans-serif">ঢাকা</text>
+        <text x="280" y="238" text-anchor="middle" font-size="11" fill="#2d6a4f" font-family="Hind Siliguri, sans-serif">বিভাগ ★</text>
+
+        <!-- Khulna -->
+        <ellipse cx="155" cy="310" rx="70" ry="52" fill="#d8f3dc" stroke="#40916c" stroke-width="1"/>
+        <text x="155" y="305" text-anchor="middle" font-size="13" font-weight="600" fill="#1a3d2b" font-family="Hind Siliguri, sans-serif">খুলনা</text>
+        <text x="155" y="321" text-anchor="middle" font-size="11" fill="#2d6a4f" font-family="Hind Siliguri, sans-serif">বিভাগ</text>
+
+        <!-- Barisal -->
+        <ellipse cx="258" cy="340" rx="55" ry="42" fill="#d8f3dc" stroke="#40916c" stroke-width="1"/>
+        <text x="258" y="335" text-anchor="middle" font-size="13" font-weight="600" fill="#1a3d2b" font-family="Hind Siliguri, sans-serif">বরিশাল</text>
+        <text x="258" y="351" text-anchor="middle" font-size="11" fill="#2d6a4f" font-family="Hind Siliguri, sans-serif">বিভাগ</text>
+
+        <!-- Chittagong - SOURCE (highlighted) -->
+        <ellipse cx="400" cy="295" rx="80" ry="62" fill="#1a3d2b" stroke="#74c69d" stroke-width="2"/>
+        <text x="400" y="283" text-anchor="middle" font-size="14" font-weight="700" fill="#fff" font-family="Hind Siliguri, sans-serif">চট্টগ্রাম</text>
+        <text x="400" y="299" text-anchor="middle" font-size="12" fill="#74c69d" font-family="Hind Siliguri, sans-serif">উৎপাদন কেন্দ্র</text>
+        <text x="400" y="315" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.65)" font-family="Hind Siliguri, sans-serif">+ কক্সবাজার</text>
+
+        <!-- Arrows FROM Chittagong TO others -->
+        <line x1="340" y1="268" x2="300" y2="245" stroke="#40916c" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arr2)" opacity="0.7"/>
+        <line x1="335" y1="255" x2="210" y2="215" stroke="#40916c" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arr2)" opacity="0.6"/>
+        <line x1="325" y1="245" x2="215" y2="155" stroke="#40916c" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arr2)" opacity="0.5"/>
+        <line x1="360" y1="245" x2="310" y2="158" stroke="#40916c" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arr2)" opacity="0.55"/>
+        <line x1="380" y1="238" x2="382" y2="155" stroke="#40916c" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arr2)" opacity="0.55"/>
+        <line x1="350" y1="310" x2="288" y2="335" stroke="#40916c" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arr2)" opacity="0.6"/>
+        <line x1="325" y1="316" x2="220" y2="310" stroke="#40916c" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arr2)" opacity="0.55"/>
+
+        <!-- Cox's Bazar - small -->
+        <ellipse cx="405" cy="410" rx="50" ry="32" fill="#2d6a4f" stroke="#74c69d" stroke-width="1.5"/>
+        <text x="405" y="406" text-anchor="middle" font-size="12" font-weight="600" fill="#fff" font-family="Hind Siliguri, sans-serif">কক্সবাজার</text>
+        <text x="405" y="420" text-anchor="middle" font-size="10" fill="#d8f3dc" font-family="Hind Siliguri, sans-serif">শুঁটকি হাব</text>
+
+        <!-- Legend -->
+        <rect x="20" y="420" width="14" height="14" rx="3" fill="#1a3d2b"/>
+        <text x="40" y="432" font-size="11" fill="#3d3d3a" font-family="Hind Siliguri, sans-serif">উৎপাদন কেন্দ্র</text>
+        <rect x="20" y="440" width="14" height="14" rx="3" fill="#d8f3dc" stroke="#40916c" stroke-width="1"/>
+        <text x="40" y="452" font-size="11" fill="#3d3d3a" font-family="Hind Siliguri, sans-serif">টার্গেট মার্কেট</text>
+      </svg>
+    </div>
+
+    <div class="two-col">
+      <div class="info-card">
+        <h3>🎯 প্রাথমিক টার্গেট গ্রাহক</h3>
+        <ul>
+          <li>ঢাকায় বসবাসকারী চট্টগ্রামের মানুষ</li>
+          <li>খাদ্যরসিক এবং ঐতিহ্যবাহী খাবারের শখীন</li>
+          <li>হোম কুক ও গৃহিণীরা যারা মানসম্পন্ন উপাদান চান</li>
+          <li>অনলাইনে শপিং করতে অভ্যস্ত ২৫–৪৫ বছর বয়সীরা</li>
+          <li>কর্পোরেট গিফটিং ও উৎসব উপহারের জন্য</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>📊 মার্কেটের সুযোগ</h3>
+        <ul>
+          <li>বাংলাদেশে ই-কমার্স মার্কেট বার্ষিক ৩০%+ বাড়ছে</li>
+          <li>খাবার ডেলিভারি ও অনলাইন বাজারে ব্যাপক চাহিদা বাড়ছে</li>
+          <li>স্থানীয় খাদ্যপণ্যের অনলাইনে তেমন প্রতিযোগিতা নেই</li>
+          <li>সিজনাল চাহিদা (ঈদ, পূজা) অনেক বেশি</li>
+          <li>প্রবাসী বাংলাদেশিদের কাছে রপ্তানির সুযোগ</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. PRODUCT STRATEGY -->
+  <section class="section" id="product">
+    <div class="section-number">সেকশন ০৪</div>
+    <h2 class="section-title">পণ্য কৌশল ও ফেজ প্ল্যান</h2>
+    <p class="section-intro">
+      আমরা একটি ধাপে ধাপে পণ্য বিস্তার কৌশল অনুসরণ করব। প্রথমে আচার ও শুঁটকিতে মনোযোগ দিয়ে পরিচিতি তৈরি করব, তারপর পর্যায়ক্রমে সিজনাল অন্যান্য পণ্য যোগ করব।
+    </p>
+
+    <div class="product-phases">
+      <div class="phase-row">
+        <span class="phase-badge p1">ফেজ ১</span>
+        <div class="phase-products">
+          <strong>🥒 আচার ও 🐟 শুঁটকি — মূল পণ্য</strong>
+          আম আচার, জলপাই আচার, তেঁতুল আচার, মিক্সড আচার, চিংড়ি শুঁটকি, লইট্যা শুঁটকি, রূপচাঁদা শুঁটকি, ইলিশ শুঁটকি ও আরও অনেক ভ্যারাইটি।
+        </div>
+        <div class="phase-timeline">মাস ১–৬<br>লঞ্চ ফেজ</div>
+      </div>
+      <div class="phase-row">
+        <span class="phase-badge p2">ফেজ ২</span>
+        <div class="phase-products">
+          <strong>🌴 খেজুর ও বাদাম — সিজনাল সম্প্রসারণ</strong>
+          পরিচিতি তৈরির পরে ধীরে ধীরে সিজনাল পণ্য আনা হবে — খেজুর, ভাজা বাদাম, কাঁচা বাদাম, কাজুবাদাম ও মধু।
+        </div>
+        <div class="phase-timeline">মাস ৭–১২<br>গ্রোথ ফেজ</div>
+      </div>
+      <div class="phase-row">
+        <span class="phase-badge p3">ফেজ ৩</span>
+        <div class="phase-products">
+          <strong>🧂 মশলা ও হ্যান্ডিক্রাফট ফুড — বিস্তার</strong>
+          হাতে তৈরি মশলার গুঁড়া, ঘানিভাঙা সরিষার তেল, নারকেল তেল, কুটির শিল্পজাত খাদ্যপণ্য।
+        </div>
+        <div class="phase-timeline">বছর ২+<br>স্কেল ফেজ</div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="info-card">
+        <h3>📦 প্যাকেজিং পরিকল্পনা</h3>
+        <ul>
+          <li>এয়ারটাইট, খাদ্যমান প্যাকেজিং</li>
+          <li>৩ সাইজ: ২৫০গ্রাম, ৫০০গ্রাম, ১কেজি</li>
+          <li>উপহার বাক্স (সিজনাল)</li>
+          <li>নিজস্ব স্টিকার ও উপাদানের তালিকা</li>
+          <li>পরিবেশবান্ধব মেটেরিয়াল ব্যবহার</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>🏭 সাপ্লাই চেইন</h3>
+        <ul>
+          <li>চট্টগ্রামের স্থানীয় উৎপাদকদের সাথে চুক্তি</li>
+          <li>কক্সবাজারের জেলেদের কাছ থেকে সরাসরি শুঁটকি</li>
+          <li>মৌসুমী স্টক সংগ্রহ ও প্রপার স্টোরেজ</li>
+          <li>কোয়ালিটি চেক ও ফুড সেফটি নিশ্চিত করা</li>
+          <li>ন্যায্যমূল্যে কৃষক/উৎপাদকদের সহায়তা</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. WEBSITE FEATURES -->
+  <section class="section" id="features">
+    <div class="section-number">সেকশন ০৫</div>
+    <h2 class="section-title">ওয়েবসাইট ও অ্যাপ ফিচার</h2>
+    <p class="section-intro">
+      একটি সহজ, বাংলা ভাষায় ই-কমার্স ওয়েবসাইট তৈরি করা হবে যেটা মোবাইলে ভালোভাবে কাজ করবে এবং ইন্টারনেটের গতি কম থাকলেও সমস্যা হবে না।
+    </p>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🛒</div>
+        <h3>পণ্যের তালিকা</h3>
+        <p>বিভাগ অনুযায়ী ফিল্টার, অনুসন্ধান, পণ্যের ছবি ও বিস্তারিত বিবরণ সহ সম্পূর্ণ পণ্যতালিকা।</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💳</div>
+        <h3>পেমেন্ট ব্যবস্থা</h3>
+        <p>বিকাশ, নগদ, রকেট, কার্ড পেমেন্ট এবং ক্যাশ অন ডেলিভারি সাপোর্ট।</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📍</div>
+        <h3>ডেলিভারি অনুসরণ</h3>
+        <p>অর্ডার নিশ্চিতকরণ বার্তা, সরাসরি ট্র্যাকিং লিংক এবং ডেলিভারির অবস্থা জানানোর সুবিধা।</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⭐</div>
+        <h3>মতামত ও রেটিং</h3>
+        <p>ক্রেতারা রেটিং ও মতামত দিতে পারবেন। ছবি আপলোড করার সুবিধাও থাকবে।</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎁</div>
+        <h3>উপহার বাক্স</h3>
+        <p>পছন্দমতো উপহার বাক্স তৈরির সুবিধা, বার্তা কার্ড যুক্ত করা এবং সরাসরি উপহার পাঠানোর অপশন।</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📱</div>
+        <h3>মোবাইল অ্যাপ (দ্বিতীয় ধাপে)</h3>
+        <p>অ্যান্ড্রয়েড ও আইওএস অ্যাপ যেখানে বিজ্ঞপ্তি, অফার ও আনুগত্য পয়েন্ট পাওয়া যাবে।</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔔</div>
+        <h3>ছাড় ও বিশেষ অফার</h3>
+        <p>ছাড়ের কোড, বেশি কিনলে ছাড়, প্রথম অর্ডারে সুবিধা এবং বন্ধুকে আনলে পুরস্কার।</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💬</div>
+        <h3>ক্রেতা সহায়তা</h3>
+        <p>হোয়াটসঅ্যাপ চ্যাট, ফোন হেল্পলাইন এবং সাধারণ জিজ্ঞাসার পেজ বাংলায়।</p>
+      </div>
+    </div>
+
+    <div class="info-card" style="margin-bottom: 24px;">
+      <h3>⚙️ টেকনোলজি স্ট্যাক</h3>
+      <div class="tech-grid" style="margin-top: 16px; margin-bottom: 0;">
+        <div class="tech-item"><span class="tech-dot frontend"></span><div><div class="tech-label">React / Next.js</div><div class="tech-role">Frontend</div></div></div>
+        <div class="tech-item"><span class="tech-dot backend"></span><div><div class="tech-label">Node.js / Laravel</div><div class="tech-role">Backend</div></div></div>
+        <div class="tech-item"><span class="tech-dot payment"></span><div><div class="tech-label">bKash API, SSLCommerz</div><div class="tech-role">Payment</div></div></div>
+        <div class="tech-item"><span class="tech-dot delivery"></span><div><div class="tech-label">Pathao / Steadfast</div><div class="tech-role">Delivery</div></div></div>
+        <div class="tech-item"><span class="tech-dot frontend"></span><div><div class="tech-label">AWS / DigitalOcean</div><div class="tech-role">Hosting</div></div></div>
+        <div class="tech-item"><span class="tech-dot backend"></span><div><div class="tech-label">MySQL / PostgreSQL</div><div class="tech-role">Database</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. CUSTOMER JOURNEY -->
+  <section class="section" id="journey">
+    <div class="section-number">সেকশন ০৬</div>
+    <h2 class="section-title">কাস্টমার জার্নি</h2>
+    <p class="section-intro">
+      একজন গ্রাহক প্রথমবার আমাদের ওয়েবসাইটে আসা থেকে শুরু করে পণ্য হাতে পাওয়া পর্যন্ত সম্পূর্ণ অভিজ্ঞতা কেমন হবে।
+    </p>
+
+    <div class="journey">
+      <div class="journey-step">
+        <div class="journey-circle">👀</div>
+        <h4>আবিষ্কার</h4>
+        <p>ফেসবুক/ইনস্টাগ্রাম বিজ্ঞাপন বা মুখে মুখে</p>
+      </div>
+      <div class="journey-step">
+        <div class="journey-circle">🌐</div>
+        <h4>ভিজিট</h4>
+        <p>ওয়েবসাইটে প্রবেশ, পণ্য দেখা</p>
+      </div>
+      <div class="journey-step">
+        <div class="journey-circle">🛒</div>
+        <h4>কার্টে যোগ</h4>
+        <p>পছন্দের পণ্য কার্টে রাখা</p>
+      </div>
+      <div class="journey-step">
+        <div class="journey-circle">💳</div>
+        <h4>পেমেন্ট</h4>
+        <p>বিকাশ / ক্যাশ অন ডেলিভারি / কার্ড পেমেন্ট</p>
+      </div>
+      <div class="journey-step">
+        <div class="journey-circle">📦</div>
+        <h4>প্রসেসিং</h4>
+        <p>প্যাকেজিং ও কুরিয়ারে হ্যান্ডওভার</p>
+      </div>
+      <div class="journey-step">
+        <div class="journey-circle">🚚</div>
+        <h4>ডেলিভারি</h4>
+        <p>১–৩ দিনের মধ্যে ঘরে পৌঁছানো</p>
+      </div>
+      <div class="journey-step">
+        <div class="journey-circle">⭐</div>
+        <h4>রিভিউ</h4>
+        <p>অভিজ্ঞতা শেয়ার ও রিপিট অর্ডার</p>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="info-card">
+        <h3>📱 মার্কেটিং চ্যানেল</h3>
+        <ul>
+          <li>ফেসবুক ও ইনস্টাগ্রাম বিজ্ঞাপন (মূল চ্যানেল)</li>
+          <li>ফেসবুক গ্রুপে পোস্ট (ফুড, রান্না গ্রুপ)</li>
+          <li>ইউটিউব ও টিকটক রেসিপি ভিডিও</li>
+          <li>ইনফ্লুয়েন্সার মার্কেটিং (ফুড ব্লগার)</li>
+          <li>গুগল সার্চ অপ্টিমাইজেশন — বাংলা কীওয়ার্ড</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>🤝 রিটেনশন স্ট্র্যাটেজি</h3>
+        <ul>
+          <li>লয়্যালটি পয়েন্ট সিস্টেম</li>
+          <li>নিয়মিত কাস্টমারদের জন্য বিশেষ ডিসকাউন্ট</li>
+          <li>মাসিক নিউজলেটার ও অফার বার্তা</li>
+          <li>রেফারেল বোনাস প্রোগ্রাম</li>
+          <li>সিজনাল প্যাকেজ ও ঈদ স্পেশাল অফার</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. REVENUE MODEL -->
+  <section class="section" id="revenue">
+    <div class="section-number">সেকশন ০৭</div>
+    <h2 class="section-title">রেভিনিউ মডেল</h2>
+    <p class="section-intro">
+      আমাদের আয়ের প্রধান উৎস হবে সরাসরি পণ্য বিক্রয়। ভবিষ্যতে অন্যান্য রেভিনিউ স্ট্রিম যোগ হবে।
+    </p>
+
+    <div class="revenue-grid">
+      <div class="rev-card primary">
+        <div class="rev-icon">🛍️</div>
+        <h3>ডায়রেক্ট সেলস</h3>
+        <p>ওয়েবসাইটে সরাসরি পণ্য বিক্রয়। প্রাথমিক পর্যায়ে মোট রেভিনিউর ৮০%+ আসবে এখান থেকে।</p>
+      </div>
+      <div class="rev-card secondary">
+        <div class="rev-icon">📦</div>
+        <h3>সাবস্ক্রিপশন বক্স</h3>
+        <p>মাসিক "আচার-শুঁটকি বক্স" সাবস্ক্রিপশন। প্রতি মাসে নতুন ভ্যারাইটি পাঠানো হবে।</p>
+      </div>
+      <div class="rev-card tertiary">
+        <div class="rev-icon">🏢</div>
+        <h3>🏢 পাইকারি ও প্রাতিষ্ঠানিক বিক্রয়</h3>
+        <p>রেস্টুরেন্ট, ক্যাটারিং সার্ভিস ও কর্পোরেট অর্ডারের জন্য বিশেষ মূল্য ও প্যাকেজ।</p>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="info-card">
+        <h3>💰 প্রাইসিং স্ট্র্যাটেজি</h3>
+        <ul>
+          <li>মার্কেট রেটের চেয়ে ১০-২০% প্রিমিয়াম (কোয়ালিটির জন্য)</li>
+          <li>বাল্ক অর্ডারে ১০-১৫% ডিসকাউন্ট</li>
+          <li>ফ্রি শিপিং — ৫০০ টাকার উপরে অর্ডারে</li>
+          <li>সাবস্ক্রিপশনে ২০% সাশ্রয়</li>
+          <li>সিজনাল ফ্ল্যাশ সেল ও বান্ডেল অফার</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>📈 ফিনান্সিয়াল প্রজেকশন</h3>
+        <ul>
+          <li><strong>মাস ১-৩:</strong> টেস্টিং ও ব্র্যান্ড বিল্ডিং পর্যায়</li>
+          <li><strong>মাস ৪-৬:</strong> প্রতিদিন ১০-২০টি অর্ডার লক্ষ্যমাত্রা</li>
+          <li><strong>মাস ৭-১২:</strong> প্রতিদিন ৫০+ অর্ডার ও ব্রেক-ইভেন</li>
+          <li><strong>বছর ২:</strong> লাভজনক অপারেশন ও নতুন পণ্য যোগ</li>
+          <li><strong>বছর ৩:</strong> পূর্ণ স্কেল ও টিম এক্সপান্ড</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. ROADMAP -->
+  <section class="section" id="roadmap">
+    <div class="section-number">সেকশন ০৮</div>
+    <h2 class="section-title">বাস্তবায়ন রোডম্যাপ</h2>
+    <p class="section-intro">
+      প্রজেক্টটি তিনটি প্রধান ফেজে বাস্তবায়িত হবে। প্রতিটি ফেজে সুনির্দিষ্ট লক্ষ্যমাত্রা নির্ধারণ করা হয়েছে।
+    </p>
+
+    <div class="roadmap">
+      <div class="roadmap-item">
+        <div class="roadmap-dot">১</div>
+        <div class="phase-tag">মাস ১–২ · প্রস্তুতি</div>
+        <h3>ফাউন্ডেশন ও রিসার্চ</h3>
+        <p>মার্কেট রিসার্চ, সাপ্লায়ার চুক্তি, বিজনেস রেজিস্ট্রেশন (ট্রেড লাইসেন্স), ব্র্যান্ড নাম ও লোগো তৈরি, ডোমেইন রেজিস্ট্রেশন এবং প্রাথমিক স্টক সংগ্রহ।</p>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-dot">২</div>
+        <div class="phase-tag">মাস ৩–৪ · নির্মাণ</div>
+        <h3>ওয়েবসাইট ডেভেলপমেন্ট</h3>
+        <p>ই-কমার্স ওয়েবসাইট তৈরি, পেমেন্ট গেটওয়ে ইন্টিগ্রেশন, পণ্যের ছবি তোলা ও কন্টেন্ট তৈরি, কুরিয়ার সার্ভিসের সাথে চুক্তি এবং সোশ্যাল মিডিয়া পেজ তৈরি।</p>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-dot">৩</div>
+        <div class="phase-tag">মাস ৫–৬ · লঞ্চ</div>
+        <h3>সফট লঞ্চ ও টেস্টিং</h3>
+        <p>বন্ধু ও পরিচিতদের কাছে বিক্রয় শুরু, ফিডব্যাক সংগ্রহ, ডেলিভারি প্রসেস পরিমার্জন, প্রথম পেইড মার্কেটিং ক্যাম্পেইন এবং রিভিউ সংগ্রহ শুরু।</p>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-dot">৪</div>
+        <div class="phase-tag">মাস ৭–১২ · গ্রোথ</div>
+        <h3>স্কেলিং ও অপ্টিমাইজেশন</h3>
+        <p>ফেসবুক/ইনস্টাগ্রাম বিজ্ঞাপন বাড়ানো, নতুন সিজনাল পণ্য যোগ (খেজুর, বাদাম), পাইকারি বিক্রয় শুরু, কাস্টমার সার্ভিস টিম তৈরি এবং মাসিক অর্ডার ৫০০+ লক্ষ্যমাত্রা।</p>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-dot">৫</div>
+        <div class="phase-tag">বছর ২+ · সম্প্রসারণ</div>
+        <h3>ফুল স্কেল অপারেশন</h3>
+        <p>মোবাইল অ্যাপ লঞ্চ, মশলা ও অন্যান্য পণ্য যোগ, নিজস্ব ওয়্যারহাউস সেটআপ, ফ্র্যাঞ্চাইজি বা পিকআপ পয়েন্ট নেটওয়ার্ক এবং প্রবাসীদের জন্য শিপিং।</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. RISKS -->
+  <section class="section" id="risks">
+    <div class="section-number">সেকশন ০৯</div>
+    <h2 class="section-title">ঝুঁকি বিশ্লেষণ ও প্রশমন</h2>
+    <p class="section-intro">
+      যেকোনো বিজনেসে ঝুঁকি থাকে। আমরা আগে থেকেই সম্ভাব্য ঝুঁকি চিহ্নিত করে সেগুলোর সমাধানের পরিকল্পনা করেছি।
+    </p>
+
+    <table class="risk-table">
+      <thead>
+        <tr>
+          <th>ঝুঁকি</th>
+          <th>মাত্রা</th>
+          <th>প্রশমনের উপায়</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>পণ্যের গুণমান বজায় রাখা কঠিন হতে পারে</td>
+          <td><span class="risk-level high">উচ্চ</span></td>
+          <td>নির্দিষ্ট সাপ্লায়ার, মান নিয়ন্ত্রণ প্রক্রিয়া ও খাদ্য পরীক্ষা নিশ্চিত করা</td>
+        </tr>
+        <tr>
+          <td>ডেলিভারিতে দেরি বা পণ্য নষ্ট হওয়া</td>
+          <td><span class="risk-level high">উচ্চ</span></td>
+          <td>একাধিক কুরিয়ার পার্টনার ও ভালো প্যাকেজিং ব্যবহার</td>
+        </tr>
+        <tr>
+          <td>প্রতিযোগিতা বাড়তে পারে</td>
+          <td><span class="risk-level medium">মধ্যম</span></td>
+          <td>ব্র্যান্ড লয়্যালটি ও ইউনিক পণ্য অফারিং দিয়ে এগিয়ে থাকা</td>
+        </tr>
+        <tr>
+          <td>পেমেন্ট ফেইলিউর ও ফ্রড</td>
+          <td><span class="risk-level medium">মধ্যম</span></td>
+          <td>নিরাপদ পেমেন্ট গেটওয়ে ব্যবহার ও ক্যাশ অন ডেলিভারি অপশন রাখা</td>
+        </tr>
+        <tr>
+          <td>সিজনাল চাহিদার ওঠানামা</td>
+          <td><span class="risk-level medium">মধ্যম</span></td>
+          <td>অফ-সিজনে ডিসকাউন্ট অফার ও স্টক ম্যানেজমেন্ট</td>
+        </tr>
+        <tr>
+          <td>প্রযুক্তিগত সমস্যা ও ওয়েবসাইট ডাউনটাইম</td>
+          <td><span class="risk-level low">কম</span></td>
+          <td>নির্ভরযোগ্য হোস্টিং ও নিয়মিত ব্যাকআপ নেওয়া</td>
+        </tr>
+        <tr>
+          <td>নেগেটিভ রিভিউ ও পাবলিক রিলেশন ইস্যু</td>
+          <td><span class="risk-level low">কম</span></td>
+          <td>দ্রুত কাস্টমার সার্ভিস ও রিফান্ড পলিসি</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 10. KPIs -->
+  <section class="section" id="kpi">
+    <div class="section-number">সেকশন ১০</div>
+    <h2 class="section-title">সাফল্যের মানদণ্ড (KPI)</h2>
+    <p class="section-intro">
+      প্রজেক্টের সাফল্য পরিমাপের জন্য নিম্নলিখিত মূল সূচকগুলো নির্ধারণ করা হয়েছে। প্রতি মাসে এগুলো রিভিউ করা হবে।
+    </p>
+
+    <div class="kpi-row">
+      <div class="kpi-card">
+        <div class="kpi-icon">📦</div>
+        <div class="kpi-value">৫০+</div>
+        <div class="kpi-label">প্রতিদিন অর্ডার (বছর ১ শেষে)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon">⭐</div>
+        <div class="kpi-value">৪.৫+</div>
+        <div class="kpi-label">গড় কাস্টমার রেটিং (৫-এর মধ্যে)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon">🔁</div>
+        <div class="kpi-value">৩০%</div>
+        <div class="kpi-label">রিপিট কাস্টমার রেট</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon">🚚</div>
+        <div class="kpi-value">৯৫%</div>
+        <div class="kpi-label">সময়মতো ডেলিভারি হার</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon">📱</div>
+        <div class="kpi-value">১০,০০০</div>
+        <div class="kpi-label">ফেসবুক ফলোয়ার (৬ মাসে)</div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="info-card">
+        <h3>✅ সাফল্যের সংজ্ঞা</h3>
+        <ul>
+          <li>ব্রেক-ইভেন পয়েন্টে পৌঁছানো বছর ১-এর মধ্যে</li>
+          <li>কমপক্ষে ৩টি বিভাগীয় শহরে ডেলিভারি নেটওয়ার্ক</li>
+          <li>১০০+ ইতিবাচক পাবলিক রিভিউ</li>
+          <li>নিয়মিত মিডিয়া কভারেজ বা ইনফ্লুয়েন্সার ফিচার</li>
+          <li>পণ্যের গুণমান নিয়ে শূন্য মেজর কমপ্লেইন্ট</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>📊 মনিটরিং টুলস</h3>
+        <ul>
+          <li>গুগল অ্যানালিটিক্স — ওয়েবসাইট ট্র্যাফিক</li>
+          <li>ফেসবুক ইনসাইটস — সোশ্যাল মিডিয়া পারফরম্যান্স</li>
+          <li>কাস্টম ড্যাশবোর্ড — অর্ডার ও রেভিনিউ</li>
+          <li>হোয়াটসঅ্যাপ ও মোবাইল বার্তা — কাস্টমার ফিডব্যাক</li>
+          <li>মাসিক টিম রিভিউ মিটিং</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>আচার ও শুঁটকি — অনলাইন বিজনেস BRD</strong><br>
+  ভার্সন ১.০ · মার্চ ২০২৬ · এই ডকুমেন্টটি গোপনীয়
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!--  DOC PANEL 2 — MARKET ANALYSIS        -->
+<!-- ═══════════════════════════════════════ -->
+<div class="doc-panel" id="panel-market">
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-badge">Market Analysis & Research Document</div>
+  <div class="cover-logo">📊</div>
+  <h1>শুঁটকি ব্যবসার<br><span>মার্কেট অ্যানালাইসিস</span></h1>
+  <p class="subtitle">অনলাইন শুঁটকি ব্যবসা শুরুর আগে বাজার বোঝার পূর্ণাঙ্গ গবেষণা ও বিশ্লেষণ</p>
+  <div class="cover-meta">
+    <div class="cover-meta-item"><div class="label">ডকুমেন্ট ভার্সন</div><div class="value">v1.0</div></div>
+    <div class="cover-meta-item"><div class="label">তারিখ</div><div class="value">মার্চ ২০২৬</div></div>
+    <div class="cover-meta-item"><div class="label">বিষয়</div><div class="value">Shutki Business BD</div></div>
+    <div class="cover-meta-item"><div class="label">মার্কেট</div><div class="value">বাংলাদেশ</div></div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#market-size">মার্কেট সাইজ</a>
+    <a href="#step1">ধাপ ১ — লক্ষ্য</a>
+    <a href="#step2">ধাপ ২ — Desk Research</a>
+    <a href="#step3">ধাপ ৩ — Field Research</a>
+    <a href="#step4">ধাপ ৪ — Competitor</a>
+    <a href="#step5">ধাপ ৫ — Segment</a>
+    <a href="#step6">ধাপ ৬ — Pricing</a>
+    <a href="#step7">ধাপ ৭ — সিদ্ধান্ত</a>
+    <a href="#swot">SWOT</a>
+    <a href="#timeline">টাইমলাইন</a>
+  </div>
+</nav>
+
+<div class="main">
+
+  <!-- MARKET SIZE -->
+  <section class="section" id="market-size">
+    <div class="section-number">সেকশন ০১</div>
+    <h2 class="section-title">মার্কেট সাইজ ও চাহিদা</h2>
+    <p class="section-intro">
+      বাংলাদেশে শুঁটকির বাজার একটি বিশাল ও দীর্ঘস্থায়ী শিল্প। বছরে লক্ষাধিক টন শুঁটকি উৎপাদন ও বিক্রয় হয় — যার অধিকাংশই অনলাইনে এখনো অর্গানাইজড নয়। এটাই আমাদের সবচেয়ে বড় সুযোগ।
+    </p>
+
+    <div class="market-size-grid">
+      <div class="msize-card big">
+        <div class="msize-icon">🐟</div>
+        <div class="msize-num">৫৫,০০০+</div>
+        <div class="msize-label">টন বার্ষিক চাহিদা</div>
+        <div class="msize-source">সারা বাংলাদেশে মোট শুঁটকির চাহিদা (বার্ষিক)</div>
+      </div>
+      <div class="msize-card mid">
+        <div class="msize-icon">🏪</div>
+        <div class="msize-num">৪০,০০০</div>
+        <div class="msize-label">টন আসাদগঞ্জ মার্কেটে</div>
+        <div class="msize-source">চট্টগ্রামের আসাদগঞ্জ বাজার দিয়ে বছরে ২০,০০০–৪০,০০০ টন শুঁটকি যায়</div>
+      </div>
+      <div class="msize-card alt">
+        <div class="msize-icon">💰</div>
+        <div class="msize-num">৩০০+ কোটি</div>
+        <div class="msize-label">কক্সবাজারের উৎপাদন মূল্য</div>
+        <div class="msize-source">শুধু কক্সবাজার এলাকায় শুঁটকি উৎপাদনের মোট মূল্য (বার্ষিক)</div>
+      </div>
+    </div>
+
+    <div class="exec-grid">
+      <div class="exec-card">
+        <div class="icon">📈</div>
+        <div class="num">১৫%+</div>
+        <div class="desc">অনলাইন ফুড মার্কেটের বার্ষিক প্রবৃদ্ধি</div>
+      </div>
+      <div class="exec-card">
+        <div class="icon">🛒</div>
+        <div class="num">৫%</div>
+        <div class="desc">অনলাইনে শুঁটকি বিক্রির বর্তমান অংশ (সুযোগ বিশাল)</div>
+      </div>
+      <div class="exec-card">
+        <div class="icon">👥</div>
+        <div class="num">৫ কোটি+</div>
+        <div class="desc">বাংলাদেশে নিয়মিত শুঁটকি ভোক্তা</div>
+      </div>
+      <div class="exec-card">
+        <div class="icon">🌍</div>
+        <div class="num">১০ লাখ+</div>
+        <div class="desc">প্রবাসী বাংলাদেশি — সম্ভাব্য বিদেশি বাজার</div>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <p>"শুঁটকির বাজার বাংলাদেশে ঐতিহ্যগতভাবে বিশাল, কিন্তু অনলাইনে এখনো সংগঠিত নয়। এই ফাঁকটাই নতুন উদ্যোক্তাদের জন্য সবচেয়ে বড় সুযোগ।"</p>
+    </div>
+
+    <div class="two-col">
+      <div class="info-card">
+        <h3>📍 প্রধান উৎপাদন এলাকা</h3>
+        <ul>
+          <li><strong>কক্সবাজার:</strong> বাংলাদেশের সবচেয়ে বড় শুঁটকি উৎপাদন কেন্দ্র — নাজিরারটেক, শাহপরী দ্বীপ</li>
+          <li><strong>চট্টগ্রাম:</strong> আসাদগঞ্জ পাইকারি বাজার — সারাদেশে সরবরাহের কেন্দ্র</li>
+          <li><strong>সুন্দরবন উপকূল:</strong> চিংড়ি ও ছুরি শুঁটকির বড় উৎস</li>
+          <li><strong>হাতিয়া, নোয়াখালী:</strong> স্থানীয় শুঁটকি উৎপাদন কেন্দ্র</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>🎯 অনলাইন বাজারের সম্ভাবনা</h3>
+        <ul>
+          <li>ঢাকায় ৫০ লক্ষ+ ইন্টারনেট ব্যবহারকারী পরিবার</li>
+          <li>অনলাইন ফুড অর্ডারের প্রবণতা ২০২০ থেকে ৩ গুণ বৃদ্ধি পেয়েছে</li>
+          <li>প্রবাসীরা দেশীয় খাবারের জন্য অতিরিক্ত ৩০–৫০% বেশি দিতে রাজি</li>
+          <li>প্রিমিয়াম ভ্যাকুয়াম প্যাক পণ্যের চাহিদা দ্রুত বাড়ছে</li>
+          <li>স্বাস্থ্য সচেতন তরুণ প্রজন্ম — কেমিক্যালমুক্ত পণ্য চান</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 1 -->
+  <section class="section" id="step1">
+    <div class="section-number">সেকশন ০২</div>
+    <h2 class="section-title">ধাপ ১ — লক্ষ্য নির্ধারণ</h2>
+    <p class="section-intro">
+      Market research শুরু করার আগে সবচেয়ে জরুরি কাজ হলো ঠিক করা — আমি কী জানতে চাই? লক্ষ্য ছাড়া research করলে সময় ও শ্রম দুটোই নষ্ট হয়।
+    </p>
+
+    <div class="steps-list">
+      <div class="step-item">
+        <div class="step-num-col">০১</div>
+        <div class="step-body">
+          <div class="step-tag">সবার আগে</div>
+          <div class="step-title-text">মূল ক্রেতা নির্দিষ্ট করুন</div>
+          <div class="step-desc">
+            "সবাই আমার ক্রেতা" — এই ভাবনা সবচেয়ে বড় ভুল। নির্দিষ্ট করুন: <em>ঢাকার ২৫–৪০ বছরের গৃহিণী যারা Facebook ব্যবহার করেন এবং অনলাইনে বাজার করেন।</em> যত নির্দিষ্ট করবেন, আপনার research তত কার্যকর হবে।
+          </div>
+          <ul class="step-tasks">
+            <li>বয়স, লোকেশন ও পেশা নির্ধারণ করুন</li>
+            <li>তারা কোন সোশ্যাল মিডিয়া বেশি ব্যবহার করেন তা ভাবুন</li>
+            <li>তাদের মাসিক খাবারের বাজেট আনুমানিক ধরুন</li>
+          </ul>
+          <div class="step-tip">
+            <strong>পরামর্শ</strong>
+            শুরুতে একটি সেগমেন্ট বেছে নিন। গৃহিণী সেগমেন্ট সবচেয়ে সহজ — তারা Facebook-এ সক্রিয়, রেফারেল দেন এবং নিয়মিত কেনেন।
+          </div>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-num-col">০২</div>
+        <div class="step-body">
+          <div class="step-tag">মূল প্রশ্ন</div>
+          <div class="step-title-text">৫টি Research প্রশ্ন লিখুন</div>
+          <div class="step-desc">
+            আপনার research-এর কেন্দ্রে থাকবে ৫টি মূল প্রশ্ন। এই প্রশ্নগুলোর উত্তর পেলে আপনার ৮০% research সম্পন্ন।
+          </div>
+          <div class="template-box">
+            <div class="t-label">উদাহরণ — Research Goal List</div>
+            <pre>১. ঢাকার অনলাইন ক্রেতারা মাসে কতবার শুঁটকি কিনেন?
+২. তারা কত টাকা দিতে রাজি?
+৩. কোন ধরনের শুঁটকির চাহিদা সবচেয়ে বেশি?
+৪. বর্তমান প্রতিযোগীদের সবচেয়ে বড় দুর্বলতা কী?
+৫. কোন প্ল্যাটফর্মে (Facebook/Daraz) বেশি বিক্রি হচ্ছে?</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-num-col">০৩</div>
+        <div class="step-body">
+          <div class="step-tag">লক্ষ্যমাত্রা</div>
+          <div class="step-title-text">প্রথম ৩ মাসের লক্ষ্য লিখুন</div>
+          <div class="step-desc">
+            Research শেষে কোথায় পৌঁছাতে চান তা এখনই ঠিক করুন। এটা লিখে রাখুন — পরে পরিমাপ করবেন।
+          </div>
+          <ul class="step-tasks">
+            <li>মাস ১: ২০টি অর্ডার — ১৫,০০০ টাকার বিক্রি</li>
+            <li>মাস ২: ৪০টি অর্ডার — ৩০,০০০ টাকার বিক্রি</li>
+            <li>মাস ৩: ৫০+ নিয়মিত ক্রেতা, ৫০,০০০+ টাকা বিক্রি</li>
+          </ul>
+          <div class="step-tools">
+            <span class="step-tool-pill">সময়: ১–২ দিন</span>
+            <span class="step-tool-pill">খরচ: শূন্য</span>
+            <span class="step-tool-pill">আউটপুট: Research Goal List</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 2 -->
+  <section class="section" id="step2">
+    <div class="section-number">সেকশন ০৩</div>
+    <h2 class="section-title">ধাপ ২ — Desk Research (অনলাইনে তথ্য সংগ্রহ)</h2>
+    <p class="section-intro">
+      মাঠে নামার আগে ঘরে বসে অনলাইনে বিদ্যমান তথ্য থেকে বাজার সম্পর্কে প্রাথমিক ধারণা নিন। এটাকে বলা হয় Secondary Research।
+    </p>
+
+    <div class="steps-list">
+      <div class="step-item">
+        <div class="step-num-col">০১</div>
+        <div class="step-body">
+          <div class="step-tag">Facebook</div>
+          <div class="step-title-text">প্রতিযোগী পেজ খুঁজুন ও বিশ্লেষণ করুন</div>
+          <div class="step-desc">
+            Facebook-এ সার্চ করুন: "শুঁটকি", "online shutki bd", "কক্সবাজার শুঁটকি", "আসল শুঁটকি"। পেজগুলোর Follower সংখ্যা, পোস্টের Engagement (লাইক+কমেন্ট), দাম ও পণ্যের ধরন একটি Spreadsheet-এ নোট করুন।
+          </div>
+          <ul class="step-tasks">
+            <li>কমপক্ষে ৫–৭টি প্রতিযোগী পেজ চিহ্নিত করুন</li>
+            <li>প্রতিটির সেরা ৫টি পোস্ট দেখুন — কোন ধরনের কনটেন্ট বেশি চলছে</li>
+            <li>কমেন্টে মানুষ কী প্রশ্ন করছে বা অভিযোগ করছে তা নোট করুন</li>
+            <li>দাম, প্যাকেজিং ও ডেলিভারি সময় নোট করুন</li>
+          </ul>
+          <div class="step-tools">
+            <span class="step-tool-pill">Facebook Search</span>
+            <span class="step-tool-pill">Google Sheets</span>
+          </div>
+          <div class="step-tip">
+            <strong>সবচেয়ে গুরুত্বপূর্ণ</strong>
+            প্রতিযোগীর নেগেটিভ কমেন্ট মনোযোগ দিয়ে পড়ুন। "দেরিতে আসে", "গন্ধ বেশি", "প্যাকেট ভালো না" — এই অভিযোগগুলোই আপনার সুযোগ।
+          </div>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-num-col">০২</div>
+        <div class="step-body">
+          <div class="step-tag">Daraz</div>
+          <div class="step-title-text">Daraz-এ শুঁটকির বাজার দেখুন</div>
+          <div class="step-desc">
+            daraz.com.bd-তে "shutki" লিখে সার্চ করুন। বেশি রিভিউ মানে বেশি বিক্রি। নেগেটিভ রিভিউ পড়ুন মনোযোগ দিয়ে — এখানেই বাজারের সমস্যা লুকিয়ে আছে।
+          </div>
+          <ul class="step-tasks">
+            <li>কোন পণ্যে কতটি রিভিউ আছে নোট করুন</li>
+            <li>রেটিং ও দাম একসাথে তুলনা করুন</li>
+            <li>ক্রেতারা কোন বিষয়ে বেশি অভিযোগ করছেন দেখুন</li>
+          </ul>
+          <div class="step-tools">
+            <span class="step-tool-pill">Daraz.com.bd</span>
+            <span class="step-tool-pill">সময়: ১–২ দিন</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-num-col">০৩</div>
+        <div class="step-body">
+          <div class="step-tag">Google Trends</div>
+          <div class="step-title-text">সার্চ ট্রেন্ড ও মৌসুম বিশ্লেষণ করুন</div>
+          <div class="step-desc">
+            trends.google.com-এ গিয়ে "shutki", "শুঁটকি মাছ", "dried fish bangladesh" লিখে সার্চ করুন। দেখুন কোন মাসে সার্চ বেশি হয় — সেটাই আপনার Peak Season। সেই সময় বেশি স্টক রাখুন ও বেশি মার্কেটিং করুন।
+          </div>
+          <ul class="step-tasks">
+            <li>কোন মাসে সার্চ সবচেয়ে বেশি তা চিহ্নিত করুন (সাধারণত শীতকাল ও রমজান)</li>
+            <li>বাংলাদেশ বনাম ভারত বা UK তুলনা করুন — প্রবাসী বাজার বুঝতে</li>
+          </ul>
+          <div class="step-tools">
+            <span class="step-tool-pill">trends.google.com</span>
+            <span class="step-tool-pill">Facebook Group Search</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 3 -->
+  <section class="section" id="step3">
+    <div class="section-number">সেকশন ০৪</div>
+    <h2 class="section-title">ধাপ ৩ — Field Research (সরাসরি তথ্য সংগ্রহ)</h2>
+    <p class="section-intro">
+      অনলাইন data সবসময় সম্পূর্ণ সত্য নয়। মানুষের সাথে সরাসরি কথা বলে নিশ্চিত হতে হবে। এটাই Primary Research — সবচেয়ে নির্ভরযোগ্য পদ্ধতি।
+    </p>
+
+    <div class="steps-list">
+      <div class="step-item">
+        <div class="step-num-col">০১</div>
+        <div class="step-body">
+          <div class="step-tag">Survey</div>
+          <div class="step-title-text">Google Forms সার্ভে তৈরি ও ছড়িয়ে দিন</div>
+          <div class="step-desc">
+            forms.google.com-এ ফ্রি ফর্ম বানান। ১০টির বেশি প্রশ্ন রাখবেন না। WhatsApp-এ পরিচিতদের পাঠান, Facebook-এ পোস্ট করুন। লক্ষ্য: ৩০–৫০টি উত্তর সংগ্রহ করা।
+          </div>
+          <ul class="step-tasks">
+            <li>আপনি কোথায় থাকেন? (লোকেশন)</li>
+            <li>মাসে কতবার শুঁটকি রান্না করেন?</li>
+            <li>কোন শুঁটকি সবচেয়ে বেশি পছন্দ?</li>
+            <li>অনলাইনে শুঁটকি কিনবেন কিনা?</li>
+            <li>এক কেজি ভালো চিংড়ি শুঁটকির জন্য কত টাকা দিতে রাজি?</li>
+          </ul>
+          <div class="step-tools">
+            <span class="step-tool-pill">Google Forms</span>
+            <span class="step-tool-pill">WhatsApp</span>
+            <span class="step-tool-pill">Facebook Group</span>
+          </div>
+          <div class="step-warn">
+            <strong>সতর্কতা</strong>
+            শুধু বন্ধু-পরিবারের মতামত নেবেন না — তারা মন রাখতে ভালো বলবেন। অপরিচিত বা কম পরিচিতদের কাছ থেকে নেওয়া ফিডব্যাক বেশি সত্য।
+          </div>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-num-col">০২</div>
+        <div class="step-body">
+          <div class="step-tag">সরাসরি কথা</div>
+          <div class="step-title-text">১০–১৫ জনকে সরাসরি ফোন করুন</div>
+          <div class="step-desc">
+            পরিচিত গৃহিণীদের ফোন করুন। বলুন: "ভাবি/আপু, ৫ মিনিট কথা বলতে পারবেন? শুঁটকি নিয়ে একটু জানতে চাইছিলাম।" মানুষ সাধারণত সরাসরি কথায় আরো সত্যি উত্তর দেন।
+          </div>
+          <ul class="step-tasks">
+            <li>আপনি কোথায় থেকে শুঁটকি কেনেন — বাজার নাকি অনলাইন?</li>
+            <li>অনলাইনে কেনার ক্ষেত্রে কোন বিষয়টা সবচেয়ে জরুরি মনে করেন?</li>
+            <li>বর্তমানে যে শুঁটকি কিনছেন — তার মান নিয়ে সন্তুষ্ট?</li>
+            <li>ভালো মানের প্যাকেটজাত শুঁটকির জন্য কত টাকা বেশি দিতে রাজি?</li>
+          </ul>
+          <div class="step-tip">
+            <strong>সেরা প্রশ্ন</strong>
+            সবসময় "কেন?" প্রশ্নটি করুন। যেমন: "আপনি অনলাইনে কিনবেন না — কেন?" এই "কেন"-এর উত্তরই সবচেয়ে মূল্যবান তথ্য দেবে।
+          </div>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-num-col">০৩</div>
+        <div class="step-body">
+          <div class="step-tag">Sample</div>
+          <div class="step-title-text">৫–১০ জনকে ফ্রি Sample দিন ও ফিডব্যাক নিন</div>
+          <div class="step-desc">
+            ছোট প্যাকেটে ২–৩ ধরনের শুঁটকি দিন। ৩ দিন পর ফিডব্যাক নিন। এই ফিডব্যাকই আপনার পণ্যের মান উন্নত করার সবচেয়ে নির্ভরযোগ্য উপায়।
+          </div>
+          <ul class="step-tasks">
+            <li>মান কেমন ছিল? (১–৫ স্কেলে)</li>
+            <li>গন্ধ কেমন? প্যাকেজিং কেমন?</li>
+            <li>দাম কত হলে নিয়মিত কিনবেন?</li>
+            <li>পরিচিতদের কাছে রেকমেন্ড করবেন কি?</li>
+          </ul>
+          <div class="step-tools">
+            <span class="step-tool-pill">সময়: ১–২ সপ্তাহ</span>
+            <span class="step-tool-pill">খরচ: ৫০০–১,০০০ টাকা</span>
+            <span class="step-tool-pill">আউটপুট: Survey Data + Feedback</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-num-col">০৪</div>
+        <div class="step-body">
+          <div class="step-tag">Supplier</div>
+          <div class="step-title-text">সাপ্লায়ারের সাথে কথা বলুন</div>
+          <div class="step-desc">
+            কক্সবাজার বা চট্টগ্রামের পাইকারি বাজারে যান বা ফোন করুন। এই তথ্য অনলাইনে কোথাও পাওয়া যায় না — সরাসরি কথা বলাই একমাত্র উপায়।
+          </div>
+          <ul class="step-tasks">
+            <li>কোন মৌসুমে দাম সবচেয়ে কম? (স্টক করার পরিকল্পনার জন্য)</li>
+            <li>মিনিমাম অর্ডার কত কেজি?</li>
+            <li>ভ্যাকুয়াম প্যাক করে দিতে পারবেন? অতিরিক্ত খরচ কত?</li>
+            <li>পরিবহন ও ডেলিভারি ব্যবস্থা কীভাবে করবেন?</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 4 — COMPETITOR -->
+  <section class="section" id="step4">
+    <div class="section-number">সেকশন ০৫</div>
+    <h2 class="section-title">ধাপ ৪ — Competitor Analysis</h2>
+    <p class="section-intro">
+      প্রতিযোগীদের ভালোভাবে চেনাই বাজারে টিকে থাকার প্রথম শর্ত। তাদের দুর্বলতা আপনার সুযোগ — সেখানেই আপনাকে ভালো করতে হবে।
+    </p>
+
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>প্রতিযোগীর ধরন</th>
+          <th>শক্তি</th>
+          <th>দুর্বলতা</th>
+          <th>আপনার সুযোগ</th>
+          <th>প্রভাব</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>বড় Facebook Page</strong><br><span style="font-size:12px;color:var(--text-muted)">১০,০০০+ Follower</span></td>
+          <td>বিশ্বাসযোগ্যতা, বড় রিচ</td>
+          <td>ব্যক্তিগত সার্ভিস নেই, দেরিতে রেসপন্স</td>
+          <td>দ্রুত সার্ভিস ও ব্যক্তিগত যোগাযোগ</td>
+          <td><span class="badge-pill bp-red">উচ্চ</span></td>
+        </tr>
+        <tr>
+          <td><strong>Daraz বিক্রেতা</strong><br><span style="font-size:12px;color:var(--text-muted)">E-commerce platform</span></td>
+          <td>বড় প্ল্যাটফর্মের সুবিধা, সার্চ ভিজিবিলিটি</td>
+          <td>প্যাকেজিং দুর্বল, Daraz কমিশন বেশি</td>
+          <td>নিজস্ব ব্র্যান্ড + ভালো প্যাকেজিং</td>
+          <td><span class="badge-pill bp-amber">মধ্যম</span></td>
+        </tr>
+        <tr>
+          <td><strong>স্থানীয় বাজার বিক্রেতা</strong><br><span style="font-size:12px;color:var(--text-muted)">অফলাইন দোকান</span></td>
+          <td>সরাসরি দেখে কেনার সুবিধা</td>
+          <td>অনলাইনে নেই, ডেলিভারি নেই</td>
+          <td>অনলাইনে সুবিধাজনক অ্যাক্সেস দেওয়া</td>
+          <td><span class="badge-pill bp-green">কম</span></td>
+        </tr>
+        <tr>
+          <td><strong>ছোট Facebook/WhatsApp বিক্রেতা</strong><br><span style="font-size:12px;color:var(--text-muted)">ব্যক্তিগত নেটওয়ার্ক</span></td>
+          <td>বিশ্বাসযোগ্য পরিচিতির মধ্যে</td>
+          <td>ব্র্যান্ডিং নেই, স্কেল করতে পারে না</td>
+          <td>পেশাদার ব্র্যান্ড তৈরি করে আলাদা হওয়া</td>
+          <td><span class="badge-pill bp-amber">মধ্যম</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="problem-box">
+      <h3>🔍 Competitor Research করার ধাপ</h3>
+      <p>প্রতিটি প্রতিযোগীর কাছ থেকে একটি ছোট অর্ডার করুন। দেখুন — কতদিনে আসে, প্যাকেজিং কেমন, পণ্যের মান কেমন, কাস্টমার সার্ভিস কীভাবে কাজ করে। এটা সবচেয়ে সরাসরি ও কার্যকর Competitor Intelligence।</p>
+    </div>
+
+    <div class="two-col">
+      <div class="info-card">
+        <h3>📋 Competitor Matrix তৈরি করুন</h3>
+        <ul>
+          <li>Google Sheet খুলুন, প্রতিটি প্রতিযোগীর জন্য একটি সারি</li>
+          <li>কলাম: নাম, পেজ লিংক, ফলোয়ার, পণ্যের তালিকা, দাম</li>
+          <li>প্যাকেজিং টাইপ, ডেলিভারি সময়, রিভিউ রেটিং লিখুন</li>
+          <li>সেরা পোস্টের screenshot সংরক্ষণ করুন</li>
+          <li>মাসে একবার আপডেট করুন</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>💡 কোথায় আলাদা হবেন</h3>
+        <ul>
+          <li><strong>ভ্যাকুয়াম প্যাকেজিং:</strong> বেশিরভাগ প্রতিযোগী সাধারণ প্লাস্টিক ব্যাগ ব্যবহার করে</li>
+          <li><strong>দ্রুত রেসপন্স:</strong> ১ ঘণ্টার মধ্যে উত্তর দিন — প্রতিযোগীরা এটা করে না</li>
+          <li><strong>স্বচ্ছতা:</strong> উৎপাদন প্রক্রিয়ার ভিডিও দিন — বিশ্বাস তৈরি হবে</li>
+          <li><strong>কাস্টমাইজেশন:</strong> গিফট প্যাক বা কম্বো অফার যা অন্যরা দেয় না</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 5 — SEGMENT -->
+  <section class="section" id="step5">
+    <div class="section-number">সেকশন ০৬</div>
+    <h2 class="section-title">ধাপ ৫ — Customer Segmentation</h2>
+    <p class="section-intro">
+      সব মানুষ আপনার ক্রেতা নয়। নির্দিষ্ট গোষ্ঠী বেছে তাদের জন্য আলাদাভাবে পরিকল্পনা করলে বিক্রি বহুগুণ বাড়ে।
+    </p>
+
+    <div class="segment-grid">
+      <div class="seg-card s1">
+        <div class="seg-icon">👩‍🍳</div>
+        <div class="seg-title">শহুরে গৃহিণী</div>
+        <div class="seg-sub">প্রধান টার্গেট — শুরু করুন এখান থেকে</div>
+        <div class="seg-row"><span class="sk">বয়স</span><span class="sv">২৫–৪৫</span></div>
+        <div class="seg-row"><span class="sk">লোকেশন</span><span class="sv">ঢাকা, চট্টগ্রাম</span></div>
+        <div class="seg-row"><span class="sk">মাসিক বাজেট</span><span class="sv">৫০০–১,০০০ টাকা</span></div>
+        <div class="seg-row"><span class="sk">প্ল্যাটফর্ম</span><span class="sv">Facebook, WhatsApp</span></div>
+        <div class="seg-row"><span class="sk">চাহিদা</span><span class="sv">পরিষ্কার, দ্রুত ডেলিভারি</span></div>
+      </div>
+      <div class="seg-card s2">
+        <div class="seg-icon">✈️</div>
+        <div class="seg-title">প্রবাসী বাংলাদেশি</div>
+        <div class="seg-sub">বেশি দাম দিতে রাজি — ভবিষ্যৎ বাজার</div>
+        <div class="seg-row"><span class="sk">বয়স</span><span class="sv">২৫–৫০</span></div>
+        <div class="seg-row"><span class="sk">লোকেশন</span><span class="sv">UK, US, মধ্যপ্রাচ্য</span></div>
+        <div class="seg-row"><span class="sk">মাসিক বাজেট</span><span class="sv">৩,০০০–১০,০০০ টাকা</span></div>
+        <div class="seg-row"><span class="sk">প্ল্যাটফর্ম</span><span class="sv">Facebook Groups</span></div>
+        <div class="seg-row"><span class="sk">চাহিদা</span><span class="sv">দীর্ঘমেয়াদী সংরক্ষণ</span></div>
+      </div>
+      <div class="seg-card s3">
+        <div class="seg-icon">🍽️</div>
+        <div class="seg-title">রেস্তোরাঁ / হোম শেফ</div>
+        <div class="seg-sub">বাল্ক অর্ডার — নিয়মিত আয়ের উৎস</div>
+        <div class="seg-row"><span class="sk">বয়স</span><span class="sv">যেকোনো</span></div>
+        <div class="seg-row"><span class="sk">লোকেশন</span><span class="sv">সারাদেশ</span></div>
+        <div class="seg-row"><span class="sk">মাসিক বাজেট</span><span class="sv">৫,০০০–৫০,০০০+</span></div>
+        <div class="seg-row"><span class="sk">প্ল্যাটফর্ম</span><span class="sv">সরাসরি যোগাযোগ</span></div>
+        <div class="seg-row"><span class="sk">চাহিদা</span><span class="sv">বাল্ক, কম দাম</span></div>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <p>"প্রথম ৩ মাস শুধু শহুরে গৃহিণী সেগমেন্টকে টার্গেট করুন। এরা Facebook-এ সক্রিয়, রেফারেল দেন, নিয়মিত কেনেন এবং সহজেই বিশ্বাস করান। সফল হলে প্রবাসী বাজারে যান।"</p>
+    </div>
+  </section>
+
+  <!-- STEP 6 — PRICING -->
+  <section class="section" id="step6">
+    <div class="section-number">সেকশন ০৭</div>
+    <h2 class="section-title">ধাপ ৬ — Pricing Analysis</h2>
+    <p class="section-intro">
+      সঠিক দাম নির্ধারণ সবচেয়ে গুরুত্বপূর্ণ সিদ্ধান্ত। বেশি দামে বিক্রি হয় না, কম দামে লাভ হয় না — মধ্যপথে প্রিমিয়াম মান দিয়ে বাজার ধরতে হবে।
+    </p>
+
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th>পণ্য</th>
+          <th>পাইকারি দাম</th>
+          <th>প্যাকেজিং খরচ</th>
+          <th>মোট খরচ</th>
+          <th>বিক্রির দাম</th>
+          <th>লাভ (প্রতি কেজি)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>লইট্টা শুঁটকি</strong></td>
+          <td>১৮০–২২০ টাকা</td>
+          <td>৫০ টাকা</td>
+          <td class="price-num">২৩০–২৭০ টাকা</td>
+          <td class="price-num">৩৩০–৩৮০ টাকা</td>
+          <td class="profit-num">৯০–১১০ টাকা</td>
+        </tr>
+        <tr>
+          <td><strong>চিংড়ি শুঁটকি</strong></td>
+          <td>৪০০–৫৫০ টাকা</td>
+          <td>৬০ টাকা</td>
+          <td class="price-num">৪৬০–৬১০ টাকা</td>
+          <td class="price-num">৬৫০–৮৫০ টাকা</td>
+          <td class="profit-num">১৯০–২৪০ টাকা</td>
+        </tr>
+        <tr>
+          <td><strong>রূপচাঁদা শুঁটকি</strong></td>
+          <td>৫৫০–৭০০ টাকা</td>
+          <td>৬০ টাকা</td>
+          <td class="price-num">৬১০–৭৬০ টাকা</td>
+          <td class="price-num">৮৫০–১,১০০ টাকা</td>
+          <td class="profit-num">২৪০–৩৪০ টাকা</td>
+        </tr>
+        <tr>
+          <td><strong>ছুরি / বাইলা শুঁটকি</strong></td>
+          <td>২৫০–৩৫০ টাকা</td>
+          <td>৫০ টাকা</td>
+          <td class="price-num">৩০০–৪০০ টাকা</td>
+          <td class="price-num">৪২০–৫৫০ টাকা</td>
+          <td class="profit-num">১২০–১৫০ টাকা</td>
+        </tr>
+        <tr>
+          <td><strong>মিক্স গিফট প্যাক (৫ পদ)</strong></td>
+          <td>৫৫০–৭০০ টাকা</td>
+          <td>১৫০ টাকা</td>
+          <td class="price-num">৭০০–৮৫০ টাকা</td>
+          <td class="price-num">১,১০০–১,৩০০ টাকা</td>
+          <td class="profit-num">৪০০–৪৫০ টাকা</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="problem-box">
+      <h3>⚠️ Pricing-এর সবচেয়ে বড় ভুল</h3>
+      <p>প্রতিযোগীর চেয়ে অনেক কম দামে শুরু করবেন না। এতে মানুষ মনে করবে পণ্যের মান খারাপ। মধ্যম দামে প্রিমিয়াম মান দিয়ে বাজারে প্রবেশ করুন — "সস্তার তেল মাথায় পড়ে" এই মানসিকতা ক্রেতার মধ্যে কাজ করে।</p>
+    </div>
+
+    <div class="two-col">
+      <div class="info-card">
+        <h3>💡 প্রিমিয়াম Pricing কৌশল</h3>
+        <ul>
+          <li>ভ্যাকুয়াম প্যাকেজিং + সুন্দর লেবেল = ২০–৩০% বেশি দামে বিক্রি সম্ভব</li>
+          <li>গিফট হ্যাম্পার প্যাকে মার্জিন সবচেয়ে বেশি (৪০–৫০%)</li>
+          <li>কম্বো প্যাক অফার করুন: "৩ ধরনের শুঁটকি = ৯৫০ টাকা" (আলাদা কিনলে ১,১০০)</li>
+          <li>প্রথম অর্ডারে ১০% ছাড় — রিপিট ক্রেতা তৈরি করুন</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>📊 মোট খরচের হিসাব (প্রতি কেজি)</h3>
+        <ul>
+          <li>পাইকারি ক্রয়মূল্য (সবচেয়ে বড় অংশ)</li>
+          <li>ভ্যাকুয়াম প্যাকেজিং: ৩০–৫০ টাকা</li>
+          <li>লেবেল ও বক্স: ১০–২০ টাকা</li>
+          <li>কুরিয়ার প্যাকিং: ১০–১৫ টাকা</li>
+          <li>আপনার সময়ের মূল্য: ১৫–২৫ টাকা</li>
+          <li><strong>মোট মার্জিন লক্ষ্য: ৩৫–৫০%</strong></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 7 — DECISION -->
+  <section class="section" id="step7">
+    <div class="section-number">সেকশন ০৮</div>
+    <h2 class="section-title">ধাপ ৭ — Data Analysis ও চূড়ান্ত সিদ্ধান্ত</h2>
+    <p class="section-intro">
+      সব তথ্য সংগ্রহের পর এবার বিশ্লেষণ করুন এবং ব্যবসার চূড়ান্ত সিদ্ধান্ত নিন। এটাই Research-এর সবচেয়ে গুরুত্বপূর্ণ ধাপ।
+    </p>
+
+    <div class="steps-list">
+      <div class="step-item">
+        <div class="step-num-col">০১</div>
+        <div class="step-body">
+          <div class="step-tag">Data</div>
+          <div class="step-title-text">সার্ভে ডেটা Google Sheet-এ একসাথে করুন</div>
+          <div class="step-desc">সব উত্তর একটি Sheet-এ আনুন। প্রতিটি প্রশ্নের জন্য আলাদা কলাম করুন। তারপর দেখুন: কতজন "হ্যাঁ" বলেছেন অনলাইনে কিনতে, কোন পণ্যের চাহিদা বেশি, কত দাম গ্রহণযোগ্য।</div>
+          <ul class="step-tasks">
+            <li>সার্ভে ডেটা Google Sheet-এ নিয়ে আসুন</li>
+            <li>প্রতিটি প্রশ্নের শতকরা হিসাব করুন</li>
+            <li>সবচেয়ে বেশি উল্লিখিত সমস্যা ও চাহিদা চিহ্নিত করুন</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-num-col">০২</div>
+        <div class="step-body">
+          <div class="step-tag">Product</div>
+          <div class="step-title-text">প্রথমে লঞ্চের জন্য ৩টি পণ্য বেছে নিন</div>
+          <div class="step-desc">সার্ভে ডেটা দেখে যে ৩টি পণ্যের চাহিদা সবচেয়ে বেশি — সেগুলো দিয়ে শুরু করুন। একসাথে ১০ ধরনের পণ্য দিয়ে শুরু করবেন না — ব্যবস্থাপনা কঠিন হবে এবং মানও ধরে রাখা কঠিন।</div>
+          <ul class="step-tasks">
+            <li>সার্ভে অনুযায়ী শীর্ষ ৩ পণ্য: লইট্টা, চিংড়ি, রূপচাঁদা</li>
+            <li>প্রতিটির জন্য আলাদা প্যাকেজিং ডিজাইন করুন</li>
+            <li>গিফট প্যাক বা মিক্স প্যাক রাখুন — মার্জিন বেশি</li>
+          </ul>
+          <div class="step-tools">
+            <span class="step-tool-pill">লইট্টা শুঁটকি</span>
+            <span class="step-tool-pill">চিংড়ি শুঁটকি</span>
+            <span class="step-tool-pill">রূপচাঁদা শুঁটকি</span>
+            <span class="step-tool-pill">মিক্স গিফট প্যাক</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-num-col">০৩</div>
+        <div class="step-body">
+          <div class="step-tag">Business Plan</div>
+          <div class="step-title-text">এক পাতার Business Plan লিখুন</div>
+          <div class="step-desc">১০০ পাতার বিশাল পরিকল্পনা দরকার নেই। এক পাতায় মূল বিষয়গুলো লিখলেই যথেষ্ট।</div>
+          <div class="template-box">
+            <div class="t-label">উদাহরণ — এক পাতার Business Plan</div>
+            <pre>ব্যবসার নাম    : [আপনার নাম] শুঁটকি ঘর
+পণ্য          : লইট্টা, চিংড়ি, রূপচাঁদা (ভ্যাকুয়াম প্যাক)
+ক্রেতা        : ঢাকার অনলাইন ক্রেতা (গৃহিণী, ২৫–৪৫)
+প্ল্যাটফর্ম   : Facebook Page
+দাম           : লইট্টা ৩৩০–৩৮০, চিংড়ি ৬৫০–৮৫০ টাকা/কেজি
+মাস ১ লক্ষ্য  : ২০ অর্ডার, ১৫,০০০ টাকা বিক্রি
+বিনিয়োগ      : ৮,০০০–১০,০০০ টাকা (স্টক + প্যাকেজিং + Boost)
+৩ মাসের লক্ষ্য: ৫০ নিয়মিত ক্রেতা, ব্রেক-ইভেন অর্জন</pre>
+          </div>
+          <div class="step-tip">
+            <strong>সবচেয়ে গুরুত্বপূর্ণ পরামর্শ</strong>
+            Analysis শেষ করে "কিন্তু..." বলে বসে থাকবেন না। ছোট করে শুরু করুন — ১০ কেজি স্টক কিনুন, ১০টি অর্ডার নিন, দেখুন কী হয়। বাস্তব অভিজ্ঞতাই সেরা research।
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SWOT -->
+  <section class="section" id="swot">
+    <div class="section-number">সেকশন ০৯</div>
+    <h2 class="section-title">SWOT বিশ্লেষণ</h2>
+    <p class="section-intro">
+      আপনার শুঁটকি ব্যবসার শক্তি, দুর্বলতা, সুযোগ ও ঝুঁকির পূর্ণাঙ্গ বিশ্লেষণ।
+    </p>
+
+    <div class="swot-grid">
+      <div class="swot-card strength">
+        <h3>↑ শক্তি (Strengths)</h3>
+        <ul>
+          <li>বাংলাদেশে শুঁটকির সারাবছর চাহিদা রয়েছে</li>
+          <li>কক্সবাজার ও চট্টগ্রাম থেকে সহজে সোর্স পাওয়া যায়</li>
+          <li>অনলাইনে এখনো সংগঠিত প্রতিযোগিতা কম</li>
+          <li>কম পুঁজিতে (৮,০০০–১০,০০০ টাকায়) শুরু সম্ভব</li>
+          <li>ভ্যাকুয়াম প্যাকেজিং দিয়ে প্রিমিয়াম পজিশনিং সুযোগ</li>
+        </ul>
+      </div>
+      <div class="swot-card weakness">
+        <h3>↓ দুর্বলতা (Weaknesses)</h3>
+        <ul>
+          <li>শুঁটকির গন্ধের কারণে ডেলিভারিতে চ্যালেঞ্জ</li>
+          <li>নতুন ব্র্যান্ড — বিশ্বাস তৈরিতে সময় লাগবে</li>
+          <li>সিজনাল supply fluctuation — শীতে দাম কম, গরমে বেশি</li>
+          <li>Storage-এর জন্য শুকনো ও ঠান্ডা জায়গা দরকার</li>
+          <li>প্রথম দিকে ছোট ভলিউমে মার্জিন কম</li>
+        </ul>
+      </div>
+      <div class="swot-card opportunity">
+        <h3>→ সুযোগ (Opportunities)</h3>
+        <ul>
+          <li>প্রবাসী বাংলাদেশি বাজার — UK, US, মধ্যপ্রাচ্যে চাহিদা প্রচুর</li>
+          <li>অনলাইন ফুড মার্কেট প্রতি বছর ১৫%+ প্রবৃদ্ধি পাচ্ছে</li>
+          <li>গিফট হ্যাম্পার ট্রেন্ড বাড়ছে — ঈদ, বিবাহে শুঁটকি প্যাক</li>
+          <li>Facebook ও Instagram-এ অর্গানিক রিচ এখনো ভালো</li>
+          <li>রেস্তোরাঁ ও হোম শেফদের কাছে B2B বিক্রির সুযোগ</li>
+        </ul>
+      </div>
+      <div class="swot-card threat">
+        <h3>! ঝুঁকি (Threats)</h3>
+        <ul>
+          <li>মৌসুমী দাম ওঠানামায় লাভ কমে যেতে পারে</li>
+          <li>নকল বা কম মানের পণ্যে বাজার নষ্ট হওয়ার আশঙ্কা</li>
+          <li>বড় E-commerce প্ল্যাটফর্মের শুঁটকি বাজারে প্রবেশ</li>
+          <li>BSTI বা খাদ্য অধিদপ্তরের নিয়মকানুন মানতে হবে</li>
+          <li>কুরিয়ারে পণ্য নষ্ট হলে রিফান্ডের ঝামেলা</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="section" id="timeline">
+    <div class="section-number">সেকশন ১০</div>
+    <h2 class="section-title">Research থেকে Launch — টাইমলাইন</h2>
+    <p class="section-intro">
+      Market Analysis শেষ করে ব্যবসা শুরু পর্যন্ত একটি বাস্তবসম্মত রোডম্যাপ। মোট সময়: ৬–৮ সপ্তাহ।
+    </p>
+
+    <div class="roadmap">
+      <div class="roadmap-item">
+        <div class="roadmap-dot">১</div>
+        <div class="phase-tag">সপ্তাহ ১–২ · Desk Research</div>
+        <h3>অনলাইনে তথ্য সংগ্রহ</h3>
+        <p>Facebook ও Daraz-এ প্রতিযোগী বিশ্লেষণ করুন। Google Trends চেক করুন। Research Goal List তৈরি করুন। ৫–৭টি প্রতিযোগীর Competitor Matrix তৈরি করুন।</p>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-dot">২</div>
+        <div class="phase-tag">সপ্তাহ ২–৩ · Survey</div>
+        <h3>Google Forms সার্ভে পরিচালনা</h3>
+        <p>Google Forms-এ সার্ভে তৈরি করুন। WhatsApp ও Facebook-এ ছড়িয়ে দিন। ৩০–৫০টি উত্তর সংগ্রহ করুন। সমান্তরালে ১০–১৫ জনকে সরাসরি ফোন করুন।</p>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-dot">৩</div>
+        <div class="phase-tag">সপ্তাহ ৩–৪ · Supplier</div>
+        <h3>সাপ্লায়ার খোঁজা ও Sample নেওয়া</h3>
+        <p>কক্সবাজার ও চট্টগ্রামের ২–৩ জন সাপ্লায়ারের সাথে যোগাযোগ করুন। দাম, মান ও মিনিমাম অর্ডার জানুন। প্রতিটি থেকে sample নিন ও তুলনা করুন।</p>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-dot">৪</div>
+        <div class="phase-tag">সপ্তাহ ৪–৫ · Analysis</div>
+        <h3>Data বিশ্লেষণ ও পণ্য নির্বাচন</h3>
+        <p>সার্ভে ডেটা Google Sheet-এ বিশ্লেষণ করুন। প্রথম ৩টি পণ্য চূড়ান্ত করুন। দাম ঠিক করুন। SWOT Analysis সম্পন্ন করুন। এক পাতার Business Plan লিখুন।</p>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-dot">৫</div>
+        <div class="phase-tag">সপ্তাহ ৫–৬ · Preparation</div>
+        <h3>প্যাকেজিং ও ব্র্যান্ড তৈরি</h3>
+        <p>ভ্যাকুয়াম প্যাকেজিং অর্ডার করুন। লেবেল ডিজাইন করুন (Canva দিয়ে)। Facebook Page তৈরি করুন। ছবি ও ভিডিও কনটেন্ট তৈরি করুন। ৫–১০ জনকে ফ্রি Sample দিন।</p>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-dot">৬</div>
+        <div class="phase-tag">সপ্তাহ ৭–৮ · Launch</div>
+        <h3>Soft Launch ও প্রথম অর্ডার</h3>
+        <p>Facebook-এ পেজ অ্যাক্টিভ করুন। প্রথম পোস্ট দিন। পরিচিতদের কাছে বিক্রি শুরু করুন। ফিডব্যাক সংগ্রহ করুন। প্রথম ১০টি অর্ডারের অভিজ্ঞতা নিন।</p>
+      </div>
+    </div>
+
+    <div class="kpi-row">
+      <div class="kpi-card">
+        <div class="kpi-icon">📋</div>
+        <div class="kpi-value">৩০–৫০</div>
+        <div class="kpi-label">সার্ভে উত্তর সংগ্রহের লক্ষ্য</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon">🏪</div>
+        <div class="kpi-value">৫–৭</div>
+        <div class="kpi-label">প্রতিযোগী বিশ্লেষণ করতে হবে</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon">📦</div>
+        <div class="kpi-value">৩</div>
+        <div class="kpi-label">প্রথমে এই কটি পণ্য দিয়ে শুরু</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon">💰</div>
+        <div class="kpi-value">১০,০০০</div>
+        <div class="kpi-label">টাকায় শুরু সম্ভব (আনুমানিক)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon">📅</div>
+        <div class="kpi-value">৬–৮ সপ্তাহ</div>
+        <div class="kpi-label">Research থেকে Launch পর্যন্ত</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>শুঁটকি ব্যবসা — Market Analysis & Research Document</strong><br>
+  ভার্সন ১.০ · মার্চ ২০২৬ · এই ডকুমেন্টটি গোপনীয়
+</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!--  DOC PANEL 3 — ACHAR MARKET ANALYSIS  -->
+<!-- ═══════════════════════════════════════ -->
+<div class="doc-panel" id="panel-achar">
+
+<!-- COVER -->
+<div class="cover" style="background: linear-gradient(135deg, #7c2d12 0%, #9a3412 40%, #1a3d2b 100%);">
+  <div class="cover-badge" style="background:rgba(251,191,36,0.15);border-color:rgba(251,191,36,0.3);color:#fbbf24;">মার্কেট অ্যানালাইসিস ও রিসার্চ</div>
+  <div class="cover-logo" style="filter:drop-shadow(0 4px 20px rgba(251,191,36,0.5));">🥒</div>
+  <h1 style="font-family:'Tiro Bangla',serif;font-size:clamp(36px,6vw,64px);color:#fff;line-height:1.25;margin-bottom:16px;font-weight:400;">আচার ব্যবসার<br><span style="color:#fbbf24;">মার্কেট অ্যানালাইসিস</span></h1>
+  <p class="subtitle">অনলাইন আচার ব্যবসা শুরুর আগে বাজার বোঝার পূর্ণাঙ্গ গবেষণা ও কৌশলগত বিশ্লেষণ</p>
+  <div class="cover-meta">
+    <div class="cover-meta-item"><div class="label">ডকুমেন্ট ভার্সন</div><div class="value">v1.0</div></div>
+    <div class="cover-meta-item"><div class="label">তারিখ</div><div class="value">মার্চ ২০২৬</div></div>
+    <div class="cover-meta-item"><div class="label">বিষয়</div><div class="value">Achar Business BD</div></div>
+    <div class="cover-meta-item"><div class="label">মার্কেট</div><div class="value">বাংলাদেশ</div></div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#achar-market-size">মার্কেট সাইজ</a>
+    <a href="#achar-goal">লক্ষ্য নির্ধারণ</a>
+    <a href="#achar-desk">Desk Research</a>
+    <a href="#achar-field">Field Research</a>
+    <a href="#achar-competitor">প্রতিযোগী</a>
+    <a href="#achar-segment">সেগমেন্ট</a>
+    <a href="#achar-pricing">প্রাইসিং</a>
+    <a href="#achar-decision">সিদ্ধান্ত</a>
+    <a href="#achar-swot">SWOT</a>
+    <a href="#achar-timeline">টাইমলাইন</a>
+  </div>
+</nav>
+
+<div class="main">
+
+  <!-- SECTION 1: MARKET SIZE -->
+  <section class="section" id="achar-market-size">
+    <div class="section-number">সেকশন ০১</div>
+    <h2 class="section-title">মার্কেট সাইজ ও চাহিদা</h2>
+    <p class="section-intro">
+      বাংলাদেশে আচারের বাজার একটি সংগঠিত শিল্পে পরিণত হচ্ছে। বড় কোম্পানিগুলো এই বাজার দখল করলেও হাতে তৈরি, কেমিক্যালমুক্ত আচারের জন্য আলাদা একটি ক্রমবর্ধমান বাজার তৈরি হচ্ছে — যেটা এখনো কেউ ঠিকমতো ধরেনি।
+    </p>
+
+    <!-- SOURCE CALLOUT -->
+    <div style="background:rgba(251,191,36,0.08);border:1px solid rgba(251,191,36,0.25);border-radius:10px;padding:14px 20px;margin-bottom:28px;font-size:13px;color:#92400e;">
+      <strong>📌 ডেটার উৎস:</strong> নিচের তথ্যগুলো The Business Post BD-এর শিল্প প্রতিবেদন (Pickle Market Industry Report), 6W Research Bangladesh Pickles Market রিপোর্ট (2025–2029), এবং BTRC ও e-CAB-এর F-commerce তথ্যের উপর ভিত্তি করে তৈরি।
+    </div>
+
+    <div class="market-size-grid">
+      <div class="msize-card big" style="background:linear-gradient(135deg,#7c2d12,#9a3412);">
+        <div class="msize-icon">🏭</div>
+        <div class="msize-num" style="color:#fbbf24;">২০০+ কোটি</div>
+        <div class="msize-label" style="color:rgba(255,255,255,0.85);">টাকার ব্র্যান্ডেড আচার বাজার</div>
+        <div class="msize-source" style="color:rgba(255,255,255,0.5);">বাংলাদেশে বার্ষিক প্যাকেজড আচারের বাজার মূল্য — বছরে ১৫–২০% বাড়ছে (সূত্র: The Business Post BD)</div>
+      </div>
+      <div class="msize-card mid">
+        <div class="msize-icon">⚖️</div>
+        <div class="msize-num">৭,৫০০+</div>
+        <div class="msize-label">টন বার্ষিক উৎপাদন</div>
+        <div class="msize-source">সারা বাংলাদেশে প্রতি বছর এই পরিমাণ প্যাকেজড আচার উৎপাদিত ও বিক্রি হয় (সূত্র: Business Post BD)</div>
+      </div>
+      <div class="msize-card alt">
+        <div class="msize-icon">🏢</div>
+        <div class="msize-num">১৫–২০টি</div>
+        <div class="msize-label">বড় ব্র্যান্ড বাজারে সক্রিয়</div>
+        <div class="msize-source">PRAN, Square, ACI, BD Food, Ahmed Food সহ কোম্পানিগুলো ১৬০–১৭০ কোটি টাকার বাজার নিয়ন্ত্রণ করছে</div>
+      </div>
+    </div>
+
+    <!-- THE REAL OPPORTUNITY HIGHLIGHT -->
+    <div style="background:linear-gradient(135deg,rgba(124,45,18,0.07),rgba(251,191,36,0.07));border-left:4px solid #d97706;border-radius:0 12px 12px 0;padding:24px 28px;margin:32px 0;">
+      <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#d97706;margin-bottom:10px;">🔍 আসল সুযোগটা কোথায়?</div>
+      <p style="font-size:16px;color:#1b1b1b;line-height:1.8;margin-bottom:12px;">বড় কোম্পানিগুলো (PRAN, Square) ব্র্যান্ডেড বাজারের ৮০%+ দখল করে আছে — কিন্তু তাদের দুর্বলতা হলো <strong>স্বাদ ও বিশ্বাসযোগ্যতা।</strong> ক্রেতারা অভিযোগ করেন: "বেশি প্রিজার্ভেটিভ", "রেডিমেড গন্ধ", "মায়ের হাতের স্বাদ নেই।"</p>
+      <p style="font-size:16px;color:#1b1b1b;line-height:1.8;">এই ফাঁকেই <strong>হাতে তৈরি, কেমিক্যালমুক্ত আচারের একটি আলাদা প্রিমিয়াম সেগমেন্ট</strong> তৈরি হচ্ছে — যেটা এখনো কেউ সংগঠিতভাবে অনলাইনে ধরেনি।</p>
+    </div>
+
+    <div class="exec-grid">
+      <div class="exec-card">
+        <div class="icon">📈</div>
+        <div class="num">১৫–২০%</div>
+        <div class="desc">আচার শিল্পের বার্ষিক প্রবৃদ্ধি হার (সূত্র: Business Post BD)</div>
+      </div>
+      <div class="exec-card">
+        <div class="icon">📱</div>
+        <div class="num">৫০,০০০+</div>
+        <div class="desc">Facebook পেজ — বাংলাদেশে পণ্য বিক্রি করছে (সূত্র: BTRC)</div>
+      </div>
+      <div class="exec-card">
+        <div class="icon">👩‍💼</div>
+        <div class="num">৭০%</div>
+        <div class="desc">F-commerce উদ্যোক্তা নারী — আচার-খাবার সেক্টরে (সূত্র: e-CAB)</div>
+      </div>
+      <div class="exec-card">
+        <div class="icon">🛒</div>
+        <div class="num">৪০০গ্রা</div>
+        <div class="desc">সবচেয়ে জনপ্রিয় বোতলের সাইজ — দাম ১৩০–৩৫০ টাকা</div>
+      </div>
+    </div>
+
+    <!-- BRANDED vs HOMEMADE COMPARISON -->
+    <div style="background:#fffdf7;border:1px solid rgba(124,45,18,0.15);border-radius:14px;padding:28px;margin:32px 0;">
+      <h3 style="font-size:16px;font-weight:700;color:#7c2d12;margin-bottom:20px;">⚡ ব্র্যান্ডেড আচার vs হাতে তৈরি আচার — তুলনা</h3>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:14px;">
+          <thead>
+            <tr style="background:rgba(124,45,18,0.08);">
+              <th style="padding:10px 14px;text-align:left;border-bottom:2px solid rgba(124,45,18,0.2);color:#7c2d12;">বিষয়</th>
+              <th style="padding:10px 14px;text-align:center;border-bottom:2px solid rgba(124,45,18,0.2);color:#7c2d12;">PRAN / Square</th>
+              <th style="padding:10px 14px;text-align:center;border-bottom:2px solid rgba(124,45,18,0.2);color:#2d6a4f;">হাতে তৈরি (আপনার)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid rgba(0,0,0,0.06);">
+              <td style="padding:9px 14px;color:#3d3d3a;">দাম (৪০০ গ্রাম)</td>
+              <td style="padding:9px 14px;text-align:center;">১৩০–১৫০ টাকা</td>
+              <td style="padding:9px 14px;text-align:center;color:#2d6a4f;font-weight:600;">২২০–৩২০ টাকা (প্রিমিয়াম)</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(0,0,0,0.06);background:rgba(0,0,0,0.02);">
+              <td style="padding:9px 14px;color:#3d3d3a;">প্রিজার্ভেটিভ</td>
+              <td style="padding:9px 14px;text-align:center;">আছে (শেলফ লাইফ বাড়াতে)</td>
+              <td style="padding:9px 14px;text-align:center;color:#2d6a4f;font-weight:600;">নেই — প্রাকৃতিক উপায়ে</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(0,0,0,0.06);">
+              <td style="padding:9px 14px;color:#3d3d3a;">কাস্টমাইজেশন</td>
+              <td style="padding:9px 14px;text-align:center;">নেই</td>
+              <td style="padding:9px 14px;text-align:center;color:#2d6a4f;font-weight:600;">হ্যাঁ — মিষ্টি/ঝাল/টক পছন্দমতো</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(0,0,0,0.06);background:rgba(0,0,0,0.02);">
+              <td style="padding:9px 14px;color:#3d3d3a;">গিফট প্যাকেজিং</td>
+              <td style="padding:9px 14px;text-align:center;">নেই</td>
+              <td style="padding:9px 14px;text-align:center;color:#2d6a4f;font-weight:600;">হ্যাঁ — সেট হিসেবে বিক্রি সম্ভব</td>
+            </tr>
+            <tr>
+              <td style="padding:9px 14px;color:#3d3d3a;">ক্রেতার বিশ্বাস</td>
+              <td style="padding:9px 14px;text-align:center;">BSTI সার্টিফিকেটে</td>
+              <td style="padding:9px 14px;text-align:center;color:#2d6a4f;font-weight:600;">রিভিউ ও সোশ্যাল প্রুফে</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SEASONAL DEMAND -->
+    <div class="two-col">
+      <div class="info-card">
+        <h3>📅 আচারের মৌসুমি চাহিদা</h3>
+        <ul>
+          <li><strong>গ্রীষ্মকাল (এপ্রিল–জুন):</strong> কাঁচা আমের আচার — সর্বোচ্চ চাহিদা, মৌসুম সীমিত</li>
+          <li><strong>শীতকাল (নভে–ফেব্রু):</strong> জলপাই আচার — শুধু এই সময় পাওয়া যায়, দাম বেশি</li>
+          <li><strong>সারা বছর:</strong> তেঁতুল চাটনি, মরিচের আচার, লেবু আচার</li>
+          <li><strong>উৎসব মৌসুম:</strong> ঈদ ও পূজায় গিফট হ্যাম্পারের চাহিদা সবচেয়ে বেশি</li>
+          <li><strong>রমজান:</strong> ইফতারে ব্যবহারের জন্য বিশেষ চাহিদা তৈরি হয়</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>🎯 হাতে তৈরি আচারের টার্গেট বাজার</h3>
+        <ul>
+          <li><strong>গৃহিণী (সারাদেশ):</strong> বাড়িতে আচার বানানোর সময় নেই — মানসম্পন্ন বিকল্প চান</li>
+          <li><strong>কর্মজীবী নারী:</strong> প্রিজার্ভেটিভ এড়িয়ে প্রাকৃতিক, ঘরের মতো আচার চান</li>
+          <li><strong>উপহার ক্রেতা (নারী):</strong> ঈদ-পূজা-বিয়েতে আচারের সেট অনন্য উপহার</li>
+          <li><strong>ফুড এন্থুজিয়াস্ট:</strong> নতুন স্বাদ ও রেসিপি ট্রাই করতে পছন্দ করেন</li>
+          <li><strong>প্রবাসী পরিবার:</strong> বিদেশে থাকা সদস্যদের জন্য দেশীয় স্বাদ পাঠান</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: GOAL -->
+  <section class="section" id="achar-goal">
+    <div class="section-number">সেকশন ০২</div>
+    <h2 class="section-title">ধাপ ১ — লক্ষ্য নির্ধারণ</h2>
+    <p class="section-intro">
+      আচার ব্যবসার Market Research শুরু করার আগে সুনির্দিষ্ট লক্ষ্য ঠিক করতে হবে। "কে কিনবে, কেন কিনবে, কত দেবে" — এই তিনটি প্রশ্নের উত্তর পাওয়াই পুরো Research-এর মূল উদ্দেশ্য।
+    </p>
+
+    <!-- IDEAL BUYER PROFILE — visual card -->
+    <div style="background:linear-gradient(135deg,rgba(124,45,18,0.06),rgba(251,191,36,0.06));border:1.5px solid rgba(124,45,18,0.15);border-radius:18px;padding:32px;margin-bottom:32px;">
+      <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#d97706;margin-bottom:18px;">🎯 আদর্শ ক্রেতার প্রোফাইল</div>
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:start;">
+        <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#7c2d12,#d97706);display:flex;align-items:center;justify-content:center;font-size:36px;flex-shrink:0;">👩</div>
+        <div>
+          <div style="font-size:20px;font-weight:700;color:#1b1b1b;margin-bottom:6px;">সারা বাংলাদেশের নারী — আচার ব্যবসার মূল ক্লায়েন্ট</div>
+          <div style="font-size:15px;color:#6b7280;margin-bottom:16px;font-style:italic;">"মানসম্পন্ন, কেমিক্যালমুক্ত, ঘরের মতো আচার চান — যেকোনো জেলা থেকে"</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <span style="background:#fff;border:1px solid rgba(124,45,18,0.2);border-radius:20px;padding:5px 14px;font-size:13px;color:#7c2d12;font-weight:500;">বয়স ২০–৫০</span>
+            <span style="background:#fff;border:1px solid rgba(124,45,18,0.2);border-radius:20px;padding:5px 14px;font-size:13px;color:#7c2d12;font-weight:500;">সারা বাংলাদেশ</span>
+            <span style="background:#fff;border:1px solid rgba(124,45,18,0.2);border-radius:20px;padding:5px 14px;font-size:13px;color:#7c2d12;font-weight:500;">মূলত নারী ক্রেতা (৮০%+)</span>
+            <span style="background:#fff;border:1px solid rgba(124,45,18,0.2);border-radius:20px;padding:5px 14px;font-size:13px;color:#7c2d12;font-weight:500;">Facebook · Instagram সক্রিয়</span>
+            <span style="background:#fff;border:1px solid rgba(124,45,18,0.2);border-radius:20px;padding:5px 14px;font-size:13px;color:#7c2d12;font-weight:500;">গৃহিণী · কর্মজীবী · শিক্ষার্থী</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 WOMEN SEGMENTS -->
+      <div style="margin-top:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+        <div style="background:rgba(124,45,18,0.06);border-radius:10px;padding:14px 16px;text-align:center;">
+          <div style="font-size:22px;margin-bottom:6px;">🏠</div>
+          <div style="font-size:13px;font-weight:700;color:#7c2d12;margin-bottom:4px;">গৃহিণী</div>
+          <div style="font-size:12px;color:#6b7280;line-height:1.5;">বাড়িতে বানানোর সময় নেই — মানসম্পন্ন বিকল্প চান</div>
+        </div>
+        <div style="background:rgba(124,45,18,0.06);border-radius:10px;padding:14px 16px;text-align:center;">
+          <div style="font-size:22px;margin-bottom:6px;">💼</div>
+          <div style="font-size:13px;font-weight:700;color:#7c2d12;margin-bottom:4px;">কর্মজীবী নারী</div>
+          <div style="font-size:12px;color:#6b7280;line-height:1.5;">অফিস শেষে রান্নার ঝামেলা নেই — রেডি প্রিমিয়াম আচার চান</div>
+        </div>
+        <div style="background:rgba(124,45,18,0.06);border-radius:10px;padding:14px 16px;text-align:center;">
+          <div style="font-size:22px;margin-bottom:6px;">🎁</div>
+          <div style="font-size:13px;font-weight:700;color:#7c2d12;margin-bottom:4px;">উপহার ক্রেতা</div>
+          <div style="font-size:12px;color:#6b7280;line-height:1.5;">ঈদ-বিয়ে-পূজায় আচারের সেট পাঠান — সারাদেশ ও প্রবাসে</div>
+        </div>
+      </div>
+
+      <div style="margin-top:16px;padding:14px 16px;background:rgba(124,45,18,0.06);border-radius:10px;font-size:14px;color:#1b1b1b;line-height:1.7;">
+        💡 <strong>আচার ব্যবসার গোপন অস্ত্র:</strong> "মায়ের হাতের আচার" গল্পটা বড় ব্র্যান্ড কখনো দিতে পারবে না। শুধু ঢাকা নয় — রাজশাহী, সিলেট, বরিশাল, রংপুর — সব জেলার নারীরাই এই পণ্যের ক্রেতা। অনলাইনে সারাদেশে পৌঁছানোই আপনার সবচেয়ে বড় সুবিধা।
+      </div>
+    </div>
+
+    <!-- 5 RESEARCH QUESTIONS — horizontal scroll cards -->
+    <div style="font-size:14px;font-weight:700;color:#7c2d12;margin-bottom:16px;display:flex;align-items:center;gap:8px;">
+      <span style="width:28px;height:28px;background:#7c2d12;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:700;flex-shrink:0;">?</span>
+      ৫টি মূল Research প্রশ্ন — এগুলোর উত্তর পেলে ৮০% কাজ শেষ
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:32px;">
+      <div style="background:#fff;border:1px solid rgba(124,45,18,0.15);border-top:3px solid #d97706;border-radius:12px;padding:18px 16px;">
+        <div style="font-size:22px;margin-bottom:8px;">🥭</div>
+        <div style="font-size:13px;font-weight:600;color:#1b1b1b;line-height:1.5;">বাংলাদেশের নারীরা কোন আচার সবচেয়ে বেশি পছন্দ করেন?</div>
+      </div>
+      <div style="background:#fff;border:1px solid rgba(124,45,18,0.15);border-top:3px solid #d97706;border-radius:12px;padding:18px 16px;">
+        <div style="font-size:22px;margin-bottom:8px;">🏭</div>
+        <div style="font-size:13px;font-weight:600;color:#1b1b1b;line-height:1.5;">বাজারের প্যাকেট না হাতে তৈরি — কোনটা বেশি চান?</div>
+      </div>
+      <div style="background:#fff;border:1px solid rgba(124,45,18,0.15);border-top:3px solid #d97706;border-radius:12px;padding:18px 16px;">
+        <div style="font-size:22px;margin-bottom:8px;">💰</div>
+        <div style="font-size:13px;font-weight:600;color:#1b1b1b;line-height:1.5;">এক বোতল (৪০০গ্রা) ভালো আচারের জন্য কত দিতে রাজি?</div>
+      </div>
+      <div style="background:#fff;border:1px solid rgba(124,45,18,0.15);border-top:3px solid #d97706;border-radius:12px;padding:18px 16px;">
+        <div style="font-size:22px;margin-bottom:8px;">😟</div>
+        <div style="font-size:13px;font-weight:600;color:#1b1b1b;line-height:1.5;">অনলাইনে আচার কেনার সবচেয়ে বড় ভয় কী?</div>
+      </div>
+      <div style="background:#fff;border:1px solid rgba(124,45,18,0.15);border-top:3px solid #d97706;border-radius:12px;padding:18px 16px;">
+        <div style="font-size:22px;margin-bottom:8px;">🎁</div>
+        <div style="font-size:13px;font-weight:600;color:#1b1b1b;line-height:1.5;">উপহার হিসেবে আচারের সেট — কোন উপলক্ষে কিনবেন?</div>
+      </div>
+    </div>
+
+    <!-- MONTHLY TARGETS — progress-bar style -->
+    <div style="background:#fff;border:1px solid rgba(124,45,18,0.15);border-radius:14px;padding:28px;margin-bottom:16px;">
+      <div style="font-size:14px;font-weight:700;color:#7c2d12;margin-bottom:20px;">📈 প্রথম ৩ মাসের বিক্রয় লক্ষ্যমাত্রা</div>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:6px;font-size:14px;">
+            <span style="font-weight:600;color:#1b1b1b;">মাস ১ &nbsp;<span style="color:#6b7280;font-weight:400;">— সফট লঞ্চ</span></span>
+            <span style="font-weight:700;color:#d97706;">৩০ অর্ডার · ২০,০০০ টাকা</span>
+          </div>
+          <div style="height:8px;background:#f3f4f6;border-radius:4px;overflow:hidden;"><div style="height:100%;width:30%;background:linear-gradient(90deg,#d97706,#fbbf24);border-radius:4px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:6px;font-size:14px;">
+            <span style="font-weight:600;color:#1b1b1b;">মাস ২ &nbsp;<span style="color:#6b7280;font-weight:400;">— বৃদ্ধি পর্যায়</span></span>
+            <span style="font-weight:700;color:#d97706;">৬০ অর্ডার · ৪০,০০০ টাকা</span>
+          </div>
+          <div style="height:8px;background:#f3f4f6;border-radius:4px;overflow:hidden;"><div style="height:100%;width:60%;background:linear-gradient(90deg,#d97706,#fbbf24);border-radius:4px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:6px;font-size:14px;">
+            <span style="font-weight:600;color:#1b1b1b;">মাস ৩ &nbsp;<span style="color:#6b7280;font-weight:400;">— নিয়মিত গ্রাহক</span></span>
+            <span style="font-weight:700;color:#d97706;">১০০+ ক্রেতা · ৭০,০০০+ টাকা</span>
+          </div>
+          <div style="height:8px;background:#f3f4f6;border-radius:4px;overflow:hidden;"><div style="height:100%;width:85%;background:linear-gradient(90deg,#d97706,#fbbf24);border-radius:4px;"></div></div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px;">
+      <span class="step-tool-pill">সময়: ২–৩ দিন</span>
+      <span class="step-tool-pill">খরচ: শূন্য</span>
+      <span class="step-tool-pill">আউটপুট: Research Goal List</span>
+    </div>
+  </section>
+
+  <!-- SECTION 3: DESK RESEARCH -->
+  <section class="section" id="achar-desk">
+    <div class="section-number">সেকশন ০৩</div>
+    <h2 class="section-title">ধাপ ২ — Desk Research (অনলাইনে তথ্য সংগ্রহ)</h2>
+    <p class="section-intro">
+      মাঠে নামার আগে ঘরে বসে অনলাইনে আচারের বাজার সম্পর্কে প্রাথমিক ধারণা নিন। এই ধাপে কোনো টাকা খরচ হয় না — শুধু সময় দিতে হবে।
+    </p>
+
+    <!-- 4 PLATFORM TILES — 2x2 grid -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:32px;">
+
+      <!-- Facebook -->
+      <div style="background:#fff;border:1px solid rgba(124,45,18,0.15);border-radius:14px;overflow:hidden;">
+        <div style="background:linear-gradient(135deg,#1877f2,#0c5fcd);padding:16px 20px;display:flex;align-items:center;gap:12px;">
+          <span style="font-size:26px;">📘</span>
+          <div>
+            <div style="color:#fff;font-weight:700;font-size:15px;">Facebook</div>
+            <div style="color:rgba(255,255,255,0.7);font-size:12px;">পেজ ও গ্রুপ বিশ্লেষণ</div>
+          </div>
+        </div>
+        <div style="padding:18px 20px;">
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;">
+            <li style="font-size:13px;color:#3d3d3a;padding-left:18px;position:relative;line-height:1.6;">
+              <span style="position:absolute;left:0;color:#d97706;font-weight:700;">›</span>
+              "হাতে তৈরি আচার", "homemade achar bd" সার্চ করুন — ৬–৮টি প্রতিযোগী পেজ চিহ্নিত করুন
+            </li>
+            <li style="font-size:13px;color:#3d3d3a;padding-left:18px;position:relative;line-height:1.6;">
+              <span style="position:absolute;left:0;color:#d97706;font-weight:700;">›</span>
+              কোন পোস্টে সবচেয়ে বেশি Engagement — দাম, বোতল সাইজ, ডেলিভারি তথ্য নোট করুন
+            </li>
+            <li style="font-size:13px;color:#3d3d3a;padding-left:18px;position:relative;line-height:1.6;">
+              <span style="position:absolute;left:0;color:#d97706;font-weight:700;">›</span>
+              "রান্না ঘর BD", "গৃহিণী" গ্রুপে কী চাইছেন — এটাই সেরা Market Intelligence
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Daraz/Chaldal -->
+      <div style="background:#fff;border:1px solid rgba(124,45,18,0.15);border-radius:14px;overflow:hidden;">
+        <div style="background:linear-gradient(135deg,#f97316,#dc2626);padding:16px 20px;display:flex;align-items:center;gap:12px;">
+          <span style="font-size:26px;">🛒</span>
+          <div>
+            <div style="color:#fff;font-weight:700;font-size:15px;">Daraz · Chaldal</div>
+            <div style="color:rgba(255,255,255,0.7);font-size:12px;">রিভিউ ও দাম বিশ্লেষণ</div>
+          </div>
+        </div>
+        <div style="padding:18px 20px;">
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;">
+            <li style="font-size:13px;color:#3d3d3a;padding-left:18px;position:relative;line-height:1.6;">
+              <span style="position:absolute;left:0;color:#d97706;font-weight:700;">›</span>
+              Pran, Square, Ahmed-এর আচার vs হাতে তৈরির দাম তুলনা করুন
+            </li>
+            <li style="font-size:13px;color:#3d3d3a;padding-left:18px;position:relative;line-height:1.6;">
+              <span style="position:absolute;left:0;color:#d97706;font-weight:700;">›</span>
+              নেগেটিভ রিভিউ পড়ুন: "প্রিজার্ভেটিভ গন্ধ", "ঘরের মতো স্বাদ নেই" — এটাই আপনার সুযোগ
+            </li>
+            <li style="font-size:13px;color:#3d3d3a;padding-left:18px;position:relative;line-height:1.6;">
+              <span style="position:absolute;left:0;color:#d97706;font-weight:700;">›</span>
+              কোন আচারে মানুষ সন্তুষ্ট নয় — সেই গ্যাপেই আপনার প্রবেশের জায়গা
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Google Trends -->
+      <div style="background:#fff;border:1px solid rgba(124,45,18,0.15);border-radius:14px;overflow:hidden;">
+        <div style="background:linear-gradient(135deg,#4285f4,#34a853);padding:16px 20px;display:flex;align-items:center;gap:12px;">
+          <span style="font-size:26px;">📊</span>
+          <div>
+            <div style="color:#fff;font-weight:700;font-size:15px;">Google Trends</div>
+            <div style="color:rgba(255,255,255,0.7);font-size:12px;">মৌসুমী চাহিদার ছক</div>
+          </div>
+        </div>
+        <div style="padding:18px 20px;">
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="font-size:11px;color:#6b7280;width:110px;flex-shrink:0;">🥭 আমের আচার</div>
+              <div style="flex:1;height:6px;background:#f3f4f6;border-radius:3px;overflow:hidden;"><div style="height:100%;width:92%;background:#d97706;border-radius:3px;"></div></div>
+              <span style="font-size:11px;color:#d97706;font-weight:700;width:50px;">মার্চ–জুন</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="font-size:11px;color:#6b7280;width:110px;flex-shrink:0;">🫒 জলপাই আচার</div>
+              <div style="flex:1;height:6px;background:#f3f4f6;border-radius:3px;overflow:hidden;"><div style="height:100%;width:70%;background:#d97706;border-radius:3px;"></div></div>
+              <span style="font-size:11px;color:#d97706;font-weight:700;width:50px;">অক্টো–ডিসে</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="font-size:11px;color:#6b7280;width:110px;flex-shrink:0;">🎁 গিফট সেট</div>
+              <div style="flex:1;height:6px;background:#f3f4f6;border-radius:3px;overflow:hidden;"><div style="height:100%;width:80%;background:#d97706;border-radius:3px;"></div></div>
+              <span style="font-size:11px;color:#d97706;font-weight:700;width:50px;">ঈদ · বিয়ে</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="font-size:11px;color:#6b7280;width:110px;flex-shrink:0;">🌶️ মরিচের আচার</div>
+              <div style="flex:1;height:6px;background:#f3f4f6;border-radius:3px;overflow:hidden;"><div style="height:100%;width:55%;background:#d97706;border-radius:3px;"></div></div>
+              <span style="font-size:11px;color:#d97706;font-weight:700;width:50px;">সারা বছর</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- YouTube / TikTok -->
+      <div style="background:#fff;border:1px solid rgba(124,45,18,0.15);border-radius:14px;overflow:hidden;">
+        <div style="background:linear-gradient(135deg,#ff0000,#cc0000);padding:16px 20px;display:flex;align-items:center;gap:12px;">
+          <span style="font-size:26px;">▶️</span>
+          <div>
+            <div style="color:#fff;font-weight:700;font-size:15px;">YouTube · TikTok · Reels</div>
+            <div style="color:rgba(255,255,255,0.7);font-size:12px;">ফুড কনটেন্ট ট্রেন্ড</div>
+          </div>
+        </div>
+        <div style="padding:18px 20px;">
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;">
+            <li style="font-size:13px;color:#3d3d3a;padding-left:18px;position:relative;line-height:1.6;">
+              <span style="position:absolute;left:0;color:#d97706;font-weight:700;">›</span>
+              "আচার রেসিপি" সার্চে কোন ভিডিওতে ১ লাখ+ views — সেই আচারের চাহিদা বেশি
+            </li>
+            <li style="font-size:13px;color:#3d3d3a;padding-left:18px;position:relative;line-height:1.6;">
+              <span style="position:absolute;left:0;color:#d97706;font-weight:700;">›</span>
+              ভিডিওর কমেন্টে "কোথায় পাব?" জিজ্ঞেস করছেন — এরাই আপনার সম্ভাব্য ক্রেতা
+            </li>
+            <li style="font-size:13px;color:#3d3d3a;padding-left:18px;position:relative;line-height:1.6;">
+              <span style="position:absolute;left:0;color:#d97706;font-weight:700;">›</span>
+              ইনফ্লুয়েন্সারদের audience দেখুন — কোলাব সুযোগ আছে কিনা বিবেচনা করুন
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="background:rgba(124,45,18,0.05);border-left:4px solid #d97706;border-radius:0 10px 10px 0;padding:16px 20px;font-size:14px;color:#92400e;line-height:1.7;">
+      <strong>মোট সময়: ৩–৪ দিন · খরচ: শূন্য</strong> — এই ধাপটি শেষ করলেই বুঝবেন কোন আচারের বাজারে সবচেয়ে বড় গ্যাপ আছে। এরপরই Field Research-এ নামুন।
+    </div>
+  </section>
+
+  <!-- SECTION 4: FIELD RESEARCH -->
+  <section class="section" id="achar-field">
+    <div class="section-number">সেকশন ০৪</div>
+    <h2 class="section-title">ধাপ ৩ — Field Research (সরাসরি তথ্য সংগ্রহ)</h2>
+    <p class="section-intro">
+      আচার ব্যবসায় Field Research অন্য যেকোনো ব্যবসার চেয়ে বেশি গুরুত্বপূর্ণ — কারণ এখানে <strong>স্বাদই সবকিছু।</strong> অনলাইনে স্বাদ দেখানো যায় না — তাই সরাসরি মানুষের মুখ থেকে জানতে হবে।
+    </p>
+
+    <!-- SURVEY BLOCK -->
+    <div style="background:#fff;border:1px solid rgba(124,45,18,0.15);border-radius:14px;overflow:hidden;margin-bottom:20px;">
+      <div style="display:grid;grid-template-columns:56px 1fr;">
+        <div style="background:linear-gradient(180deg,#7c2d12,#9a3412);display:flex;align-items:flex-start;justify-content:center;padding-top:24px;font-size:20px;color:#fbbf24;font-weight:900;">📋</div>
+        <div style="padding:24px 24px;">
+          <div style="display:inline-block;font-size:11px;font-weight:700;color:#d97706;background:rgba(217,119,6,0.1);padding:3px 12px;border-radius:10px;margin-bottom:10px;letter-spacing:0.5px;">SURVEY</div>
+          <div style="font-size:17px;font-weight:700;color:#1b1b1b;margin-bottom:10px;">Google Forms সার্ভে — ৪০–৬০টি উত্তর সংগ্রহ করুন</div>
+          <div style="font-size:14px;color:#6b7280;margin-bottom:16px;">forms.google.com-এ ৮–১০টি প্রশ্নের ফর্ম বানান। WhatsApp ও Facebook-এ ছড়িয়ে দিন।</div>
+          <div style="background:#f8faf9;border:1px solid rgba(124,45,18,0.1);border-radius:10px;padding:16px 18px;">
+            <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#d97706;margin-bottom:10px;">আচার সার্ভের নমুনা প্রশ্নসমূহ</div>
+            <pre style="font-family:'Hind Siliguri',sans-serif;font-size:13px;color:#3d3d3a;line-height:1.85;white-space:pre-wrap;">১. আপনি কোথায় থাকেন? (জেলা/শহর)
+২. মাসে কতটি আচার কিনেন বা বানান?
+৩. কোন আচার সবচেয়ে পছন্দ? □ আমের  □ জলপাই  □ তেঁতুল  □ মরিচ
+৪. বাজারের প্যাকেট না হাতে তৈরি — কোনটা পছন্দ?
+৫. এক বোতল (৪০০গ্রাম) আচারে কত দিতে রাজি?
+   □ ১৫০–২০০  □ ২০০–২৮০  □ ২৮০–৩৫০  □ ৩৫০+
+৬. অনলাইনে আচার কিনতে সবচেয়ে বড় ভয় কী?
+৭. উপহার হিসেবে আচারের সেট কিনবেন? কোন উপলক্ষে?
+৮. কেমিক্যালমুক্ত আচারের জন্য বেশি দিতে রাজি?</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TASTE TEST BLOCK — highlighted differently -->
+    <div style="background:linear-gradient(135deg,rgba(124,45,18,0.05),rgba(251,191,36,0.08));border:1.5px solid rgba(217,119,6,0.3);border-radius:14px;padding:28px;margin-bottom:20px;">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
+        <div style="width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#7c2d12,#d97706);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;">🍶</div>
+        <div>
+          <div style="font-size:18px;font-weight:700;color:#7c2d12;">Taste Test — আচারের সবচেয়ে শক্তিশালী অস্ত্র</div>
+          <div style="font-size:13px;color:#92400e;">১০–১৫ জনকে ছোট বোতলে ৩–৪ ধরনের আচার দিন · ৩ দিন পর ফিডব্যাক নিন</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-bottom:16px;">
+        <div style="background:#fff;border-radius:10px;padding:12px 14px;text-align:center;border:1px solid rgba(124,45,18,0.12);">
+          <div style="font-size:20px;margin-bottom:4px;">⭐</div>
+          <div style="font-size:12px;color:#1b1b1b;font-weight:600;">স্বাদ রেটিং</div>
+          <div style="font-size:11px;color:#6b7280;">১–৫ স্কেলে</div>
+        </div>
+        <div style="background:#fff;border-radius:10px;padding:12px 14px;text-align:center;border:1px solid rgba(124,45,18,0.12);">
+          <div style="font-size:20px;margin-bottom:4px;">🌡️</div>
+          <div style="font-size:12px;color:#1b1b1b;font-weight:600;">ঝালের মাত্রা</div>
+          <div style="font-size:11px;color:#6b7280;">কম / ঠিকমতো / বেশি</div>
+        </div>
+        <div style="background:#fff;border-radius:10px;padding:12px 14px;text-align:center;border:1px solid rgba(124,45,18,0.12);">
+          <div style="font-size:20px;margin-bottom:4px;">🫙</div>
+          <div style="font-size:12px;color:#1b1b1b;font-weight:600;">তেলের পরিমাণ</div>
+          <div style="font-size:11px;color:#6b7280;">কম / ঠিকমতো / বেশি</div>
+        </div>
+        <div style="background:#fff;border-radius:10px;padding:12px 14px;text-align:center;border:1px solid rgba(124,45,18,0.12);">
+          <div style="font-size:20px;margin-bottom:4px;">💬</div>
+          <div style="font-size:12px;color:#1b1b1b;font-weight:600;">নিয়মিত কিনবেন?</div>
+          <div style="font-size:11px;color:#6b7280;">হ্যাঁ · না · হয়তো</div>
+        </div>
+      </div>
+      <div style="background:rgba(124,45,18,0.06);border-radius:10px;padding:14px 18px;font-size:13px;color:#7c2d12;line-height:1.65;">
+        <strong>💡 স্বর্ণের পরামর্শ:</strong> Taste Test-এর পর যারা ভালো বলবেন, তাদের একটি WhatsApp গ্রুপে রাখুন। এরাই আপনার প্রথম গ্রাহক এবং সবচেয়ে শক্তিশালী word-of-mouth মার্কেটার।
+      </div>
+      <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+        <span class="step-tool-pill">সময়: ১ সপ্তাহ</span>
+        <span class="step-tool-pill">খরচ: ৮০০–১,৫০০ টাকা</span>
+        <span class="step-tool-pill">আউটপুট: Taste Score + First Reviews</span>
+      </div>
+    </div>
+
+    <!-- MARKET VISIT BLOCK -->
+    <div style="background:#fff;border:1px solid rgba(124,45,18,0.15);border-radius:14px;padding:24px 26px;margin-bottom:8px;">
+      <div style="font-size:16px;font-weight:700;color:#1b1b1b;margin-bottom:6px;display:flex;align-items:center;gap:10px;">
+        <span>🛒</span> কাঁচাবাজার ও মশলার দোকানে সরাসরি যান
+      </div>
+      <div style="font-size:14px;color:#6b7280;margin-bottom:16px;">কাঁচামালের পাইকারি ও খুচরা দাম দুটোই জানুন — উৎপাদন খরচের সঠিক হিসাব ছাড়া দাম নির্ধারণ সম্ভব নয়।</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div style="background:#fafafa;border-radius:10px;padding:14px 16px;">
+          <div style="font-size:13px;font-weight:600;color:#7c2d12;margin-bottom:8px;">📍 কোথায় যাবেন</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;">
+            <li style="font-size:13px;color:#3d3d3a;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:#d97706;">›</span>খাতুনগঞ্জ, চট্টগ্রাম (মশলা পাইকারি)</li>
+            <li style="font-size:13px;color:#3d3d3a;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:#d97706;">›</span>শ্যামবাজার, ঢাকা (মশলা পাইকারি)</li>
+            <li style="font-size:13px;color:#3d3d3a;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:#d97706;">›</span>মিটফোর্ড / রিয়াজউদ্দিন বাজার (বোতল)</li>
+          </ul>
+        </div>
+        <div style="background:#fafafa;border-radius:10px;padding:14px 16px;">
+          <div style="font-size:13px;font-weight:600;color:#7c2d12;margin-bottom:8px;">📝 কী জানবেন</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;">
+            <li style="font-size:13px;color:#3d3d3a;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:#d97706;">›</span>কাঁচা আম — মৌসুম ও অফ-সিজন দাম</li>
+            <li style="font-size:13px;color:#3d3d3a;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:#d97706;">›</span>ঘানিভাঙা সরিষার তেল পাইকারি দাম</li>
+            <li style="font-size:13px;color:#3d3d3a;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:#d97706;">›</span>কাচের বোতল — MOQ ও প্রতি পিস দাম</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: COMPETITOR -->
+  <section class="section" id="achar-competitor">
+    <div class="section-number">সেকশন ০৫</div>
+    <h2 class="section-title">ধাপ ৪ — প্রতিযোগী বিশ্লেষণ</h2>
+    <p class="section-intro">
+      আচারের বাজারে দুই ধরনের প্রতিযোগী আছে — বড় কোম্পানি ও ছোট হোমমেড বিক্রেতা। দুইটার দুর্বলতাই আপনার সুযোগ।
+    </p>
+
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>প্রতিযোগী</th>
+          <th>শক্তি</th>
+          <th>দুর্বলতা</th>
+          <th>আপনার সুযোগ</th>
+          <th>হুমকির মাত্রা</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Pran / Ahmed / Square</strong><br><span style="font-size:12px;color:var(--text-muted)">বড় কোম্পানি — সুপারশপ বিক্রেতা</span></td>
+          <td>ব্র্যান্ড পরিচিতি, বড় ডিস্ট্রিবিউশন</td>
+          <td>কেমিক্যাল/প্রিজার্ভেটিভ, কারখানার স্বাদ, ঘরের মতো নয়</td>
+          <td>হাতে তৈরি, কেমিক্যালমুক্ত — এই গ্যাপ পূরণ করুন</td>
+          <td><span class="badge-pill bp-amber">মধ্যম</span></td>
+        </tr>
+        <tr>
+          <td><strong>Facebook হোমমেড বিক্রেতা</strong><br><span style="font-size:12px;color:var(--text-muted)">ব্যক্তিগত পেজ থেকে বিক্রি</span></td>
+          <td>সত্যিকারের হাতে তৈরি, বিশ্বাসযোগ্য</td>
+          <td>ব্র্যান্ডিং নেই, প্যাকেজিং দুর্বল, স্কেল করতে পারে না</td>
+          <td>একই মান + পেশাদার প্যাকেজিং + নির্ভরযোগ্য ডেলিভারি</td>
+          <td><span class="badge-pill bp-green">কম</span></td>
+        </tr>
+        <tr>
+          <td><strong>Chaldal / Shajgoj</strong><br><span style="font-size:12px;color:var(--text-muted)">Online Grocery Platform</span></td>
+          <td>বড় ক্রেতাবেস, ডেলিভারি নেটওয়ার্ক</td>
+          <td>শুধু কোম্পানির পণ্য রাখে, হাতে তৈরি নেই</td>
+          <td>এই প্ল্যাটফর্মে ভবিষ্যতে যোগ দেওয়ার সুযোগ</td>
+          <td><span class="badge-pill bp-green">কম</span></td>
+        </tr>
+        <tr>
+          <td><strong>স্থানীয় মিষ্টির দোকান</strong><br><span style="font-size:12px;color:var(--text-muted)">অফলাইন আচার বিক্রেতা</span></td>
+          <td>লোকাল বিশ্বাস, দেখেশুনে কেনা যায়</td>
+          <td>অনলাইনে নেই, ডেলিভারি নেই, ব্র্যান্ডিং নেই</td>
+          <td>অনলাইনে এই অনুভূতি দেওয়া — ভিডিও কনটেন্ট ও গল্প দিয়ে</td>
+          <td><span class="badge-pill bp-green">কম</span></td>
+        </tr>
+        <tr>
+          <td><strong>Aarong / হাসু ফুড</strong><br><span style="font-size:12px;color:var(--text-muted)">প্রিমিয়াম হ্যান্ডমেড ব্র্যান্ড</span></td>
+          <td>প্রিমিয়াম পজিশনিং, উপহার বাজারে শক্তিশালী</td>
+          <td>দাম অনেক বেশি, অনলাইনে সীমিত পরিসর</td>
+          <td>একই মান, কিন্তু সাশ্রয়ী দামে — মধ্যবিত্তকে ধরুন</td>
+          <td><span class="badge-pill bp-amber">মধ্যম</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="problem-box">
+      <h3>🔍 সেরা Competitor Research কৌশল</h3>
+      <p>প্রতিটি প্রধান প্রতিযোগীর কাছ থেকে একটি করে পণ্য কিনুন। নিজে খান, পরিবারকে খাওয়ান। দেখুন কোথায় কোথায় ঘাটতি আছে — স্বাদে, প্যাকেজিংয়ে, ডেলিভারিতে। এই অভিজ্ঞতাই আপনার সেরা Market Intelligence।</p>
+    </div>
+
+    <!-- FACEBOOK COMPETITOR DEEP DIVE -->
+    <div style="background:#fff;border:1.5px solid rgba(24,119,242,0.2);border-radius:16px;overflow:hidden;margin-bottom:32px;">
+
+      <!-- Header -->
+      <div style="background:linear-gradient(135deg,#1877f2,#0c5fcd);padding:20px 26px;display:flex;align-items:center;gap:14px;">
+        <span style="font-size:30px;">📘</span>
+        <div>
+          <div style="font-size:17px;font-weight:700;color:#fff;">Facebook আচার পেজ — সবচেয়ে বড় প্রতিযোগী</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.7);margin-top:2px;">হাজারো ছোট পেজ একই বাজারে আপনার সাথে প্রতিযোগিতা করছে — এদের ভালো করে চেনাই আপনার প্রথম কাজ</div>
+        </div>
+      </div>
+
+      <div style="padding:24px 26px;">
+
+        <!-- WHY FACEBOOK IS THE MAIN COMPETITOR -->
+        <div style="background:rgba(24,119,242,0.05);border-left:4px solid #1877f2;border-radius:0 10px 10px 0;padding:14px 18px;margin-bottom:24px;font-size:14px;color:#1b1b1b;line-height:1.75;">
+          ⚠️ <strong>বাস্তব চিত্র:</strong> Facebook-এ "আচার", "হাতে তৈরি আচার BD", "আমের আচার অনলাইন" সার্চ করলে শত শত পেজ আসে। এরা সবাই একই ক্রেতাকে টার্গেট করছে। এই প্রতিযোগিতায় টিকতে হলে <strong>কী দিয়ে আলাদা হবেন</strong> সেটা আগে থেকে ঠিক করতে হবে।
+        </div>
+
+        <!-- FACEBOOK COMPETITOR TYPES — 3 cards -->
+        <div style="font-size:13px;font-weight:700;color:#1877f2;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;">Facebook-এ ৩ ধরনের প্রতিযোগী</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px;">
+
+          <div style="border:1px solid rgba(24,119,242,0.15);border-top:3px solid #ef4444;border-radius:12px;padding:18px 16px;">
+            <div style="font-size:22px;margin-bottom:8px;">🔴</div>
+            <div style="font-size:14px;font-weight:700;color:#1b1b1b;margin-bottom:6px;">বড় F-commerce পেজ</div>
+            <div style="font-size:12px;color:#6b7280;margin-bottom:12px;">১০,০০০+ ফলোয়ার · বুস্ট করে · রেগুলার পোস্ট</div>
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <div style="font-size:12px;color:#3d3d3a;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:#ef4444;">✗</span>প্যাকেজিং ভালো কিন্তু স্বাদ কারখানার মতো</div>
+              <div style="font-size:12px;color:#3d3d3a;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:#ef4444;">✗</span>কাস্টমাইজেশন নেই — সবাইকে একই দেয়</div>
+              <div style="font-size:12px;color:#3d3d3a;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:#ef4444;">✗</span>রিভিউতে "অনেক মিষ্টি", "প্রিজার্ভেটিভ গন্ধ"</div>
+            </div>
+            <div style="margin-top:12px;background:#fef2f2;border-radius:8px;padding:8px 10px;font-size:12px;color:#991b1b;font-weight:500;">হুমকি: <span style="color:#ef4444;">বেশি</span> — এদের থেকে আলাদা হতেই হবে</div>
+          </div>
+
+          <div style="border:1px solid rgba(24,119,242,0.15);border-top:3px solid #f59e0b;border-radius:12px;padding:18px 16px;">
+            <div style="font-size:22px;margin-bottom:8px;">🟡</div>
+            <div style="font-size:14px;font-weight:700;color:#1b1b1b;margin-bottom:6px;">মাঝারি হোমমেড পেজ</div>
+            <div style="font-size:12px;color:#6b7280;margin-bottom:12px;">১,০০০–১০,০০০ ফলোয়ার · মাঝেমধ্যে পোস্ট</div>
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <div style="font-size:12px;color:#3d3d3a;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:#f59e0b;">~</span>সত্যিকারের হাতে তৈরি, স্বাদ ভালো</div>
+              <div style="font-size:12px;color:#3d3d3a;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:#f59e0b;">~</span>প্যাকেজিং দুর্বল — পলিব্যাগ বা সাধারণ বোতল</div>
+              <div style="font-size:12px;color:#3d3d3a;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:#f59e0b;">~</span>ডেলিভারি অনিয়মিত, রেসপন্স দেরিতে</div>
+            </div>
+            <div style="margin-top:12px;background:#fef3c7;border-radius:8px;padding:8px 10px;font-size:12px;color:#92400e;font-weight:500;">হুমকি: <span style="color:#d97706;">মধ্যম</span> — আপনি পেশাদার হলে এগিয়ে থাকবেন</div>
+          </div>
+
+          <div style="border:1px solid rgba(24,119,242,0.15);border-top:3px solid #22c55e;border-radius:12px;padding:18px 16px;">
+            <div style="font-size:22px;margin-bottom:8px;">🟢</div>
+            <div style="font-size:14px;font-weight:700;color:#1b1b1b;margin-bottom:6px;">ছোট ব্যক্তিগত পেজ</div>
+            <div style="font-size:12px;color:#6b7280;margin-bottom:12px;">৫০০-এর নিচে ফলোয়ার · মাঝেমাঝে পোস্ট</div>
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <div style="font-size:12px;color:#3d3d3a;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:#22c55e;">✓</span>শুধু পরিচিতদের মধ্যে বিক্রি</div>
+              <div style="font-size:12px;color:#3d3d3a;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:#22c55e;">✓</span>কোনো ব্র্যান্ডিং বা স্ট্র্যাটেজি নেই</div>
+              <div style="font-size:12px;color:#3d3d3a;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:#22c55e;">✓</span>বাইরের ক্রেতাদের কাছে পৌঁছাতে পারছে না</div>
+            </div>
+            <div style="margin-top:12px;background:#f0fdf4;border-radius:8px;padding:8px 10px;font-size:12px;color:#166534;font-weight:500;">হুমকি: <span style="color:#22c55e;">কম</span> — এদের ক্রেতারাই আপনার সম্ভাব্য ক্রেতা</div>
+          </div>
+
+        </div>
+
+        <!-- HOW TO RESEARCH FACEBOOK COMPETITORS -->
+        <div style="font-size:13px;font-weight:700;color:#1877f2;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;">Facebook Competitor Research — ধাপে ধাপে</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px;">
+          <div style="background:#f8faff;border:1px solid rgba(24,119,242,0.12);border-radius:10px;padding:16px 18px;">
+            <div style="font-size:13px;font-weight:700;color:#1877f2;margin-bottom:10px;">🔎 কীভাবে খুঁজবেন</div>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;">
+              <li style="font-size:13px;color:#3d3d3a;padding-left:18px;position:relative;line-height:1.6;"><span style="position:absolute;left:0;color:#1877f2;font-weight:700;">›</span>Facebook সার্চে লিখুন: "আচার BD", "হাতে তৈরি আচার", "আমের আচার অনলাইন", "মায়ের আচার"</li>
+              <li style="font-size:13px;color:#3d3d3a;padding-left:18px;position:relative;line-height:1.6;"><span style="position:absolute;left:0;color:#1877f2;font-weight:700;">›</span>"Pages" ফিল্টার দিন — শুধু পেজগুলো দেখুন</li>
+              <li style="font-size:13px;color:#3d3d3a;padding-left:18px;position:relative;line-height:1.6;"><span style="position:absolute;left:0;color:#1877f2;font-weight:700;">›</span>Facebook Groups-এ "রান্না ঘর", "গৃহিণী BD" — পোস্টে আচার বিক্রেতা খুঁজুন</li>
+              <li style="font-size:13px;color:#3d3d3a;padding-left:18px;position:relative;line-height:1.6;"><span style="position:absolute;left:0;color:#1877f2;font-weight:700;">›</span>Instagram-এ #হাতেতৈরিআচার #acharbd হ্যাশট্যাগ দেখুন</li>
+            </ul>
+          </div>
+          <div style="background:#f8faff;border:1px solid rgba(24,119,242,0.12);border-radius:10px;padding:16px 18px;">
+            <div style="font-size:13px;font-weight:700;color:#1877f2;margin-bottom:10px;">📝 কী নোট করবেন</div>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;">
+              <li style="font-size:13px;color:#3d3d3a;padding-left:18px;position:relative;line-height:1.6;"><span style="position:absolute;left:0;color:#1877f2;font-weight:700;">›</span>ফলোয়ার সংখ্যা ও পোস্টের Engagement rate</li>
+              <li style="font-size:13px;color:#3d3d3a;padding-left:18px;position:relative;line-height:1.6;"><span style="position:absolute;left:0;color:#1877f2;font-weight:700;">›</span>কোন আচার বিক্রি করছে, কোন সাইজে, কত দামে</li>
+              <li style="font-size:13px;color:#3d3d3a;padding-left:18px;position:relative;line-height:1.6;"><span style="position:absolute;left:0;color:#1877f2;font-weight:700;">›</span>কমেন্টে ক্রেতারা কী অভিযোগ করছেন</li>
+              <li style="font-size:13px;color:#3d3d3a;padding-left:18px;position:relative;line-height:1.6;"><span style="position:absolute;left:0;color:#1877f2;font-weight:700;">›</span>ডেলিভারি কোথায় দিচ্ছে — শুধু ঢাকা নাকি সারাদেশ</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- YOUR EDGE OVER FACEBOOK COMPETITORS -->
+        <div style="font-size:13px;font-weight:700;color:#1877f2;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;">Facebook প্রতিযোগীদের থেকে কীভাবে এগিয়ে থাকবেন</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;">
+          <div style="background:linear-gradient(135deg,rgba(24,119,242,0.05),rgba(124,45,18,0.05));border:1px solid rgba(124,45,18,0.12);border-radius:10px;padding:14px 16px;text-align:center;">
+            <div style="font-size:22px;margin-bottom:6px;">📸</div>
+            <div style="font-size:13px;font-weight:600;color:#1b1b1b;margin-bottom:4px;">প্রফেশনাল ছবি</div>
+            <div style="font-size:12px;color:#6b7280;line-height:1.5;">বেশিরভাগ পেজ মোবাইলে তোলা ঝাপসা ছবি দেয় — আপনি ভালো আলোয় সুন্দর ছবি দিন</div>
+          </div>
+          <div style="background:linear-gradient(135deg,rgba(24,119,242,0.05),rgba(124,45,18,0.05));border:1px solid rgba(124,45,18,0.12);border-radius:10px;padding:14px 16px;text-align:center;">
+            <div style="font-size:22px;margin-bottom:6px;">⚡</div>
+            <div style="font-size:13px;font-weight:600;color:#1b1b1b;margin-bottom:4px;">দ্রুত রেসপন্স</div>
+            <div style="font-size:12px;color:#6b7280;line-height:1.5;">অনেক পেজ ইনবক্সে সারাদিন রিপ্লাই দেয় না — আপনি ৩০ মিনিটের মধ্যে রিপ্লাই দিন</div>
+          </div>
+          <div style="background:linear-gradient(135deg,rgba(24,119,242,0.05),rgba(124,45,18,0.05));border:1px solid rgba(124,45,18,0.12);border-radius:10px;padding:14px 16px;text-align:center;">
+            <div style="font-size:22px;margin-bottom:6px;">🏷️</div>
+            <div style="font-size:13px;font-weight:600;color:#1b1b1b;margin-bottom:4px;">পরিষ্কার দাম</div>
+            <div style="font-size:12px;color:#6b7280;line-height:1.5;">অনেক পেজ "ইনবক্স করুন" লেখে — আপনি পোস্টেই দাম ও সাইজ স্পষ্ট লিখুন</div>
+          </div>
+          <div style="background:linear-gradient(135deg,rgba(24,119,242,0.05),rgba(124,45,18,0.05));border:1px solid rgba(124,45,18,0.12);border-radius:10px;padding:14px 16px;text-align:center;">
+            <div style="font-size:22px;margin-bottom:6px;">🎥</div>
+            <div style="font-size:13px;font-weight:600;color:#1b1b1b;margin-bottom:4px;">তৈরির ভিডিও</div>
+            <div style="font-size:12px;color:#6b7280;line-height:1.5;">প্রতিটি ব্যাচ বানানোর ভিডিও দিন — এই স্বচ্ছতায় ক্রেতার বিশ্বাস তৈরি হয়</div>
+          </div>
+          <div style="background:linear-gradient(135deg,rgba(24,119,242,0.05),rgba(124,45,18,0.05));border:1px solid rgba(124,45,18,0.12);border-radius:10px;padding:14px 16px;text-align:center;">
+            <div style="font-size:22px;margin-bottom:6px;">🚚</div>
+            <div style="font-size:13px;font-weight:600;color:#1b1b1b;margin-bottom:4px;">সারাদেশ ডেলিভারি</div>
+            <div style="font-size:12px;color:#6b7280;line-height:1.5;">অনেকে শুধু ঢাকায় দেয় — আপনি সারাদেশে কুরিয়ারে পাঠানোর ব্যবস্থা করুন</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="info-card">
+        <h3>📋 Competitor Matrix তৈরি করুন</h3>
+        <ul>
+          <li>Google Sheet খুলুন, প্রতিটি প্রতিযোগীর জন্য একটি সারি</li>
+          <li>কলাম: নাম, প্ল্যাটফর্ম, দাম, প্যাকেজিং সাইজ, উপাদান তালিকা আছে কিনা</li>
+          <li>স্বাদের ধরন: মিষ্টি / টক / ঝাল / মিশ্র — কোন ক্যাটাগরি বাজারে কম</li>
+          <li>রিভিউ রেটিং ও নেগেটিভ কমেন্ট সংরক্ষণ করুন</li>
+          <li>প্রতি মৌসুমে আপডেট করুন</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>💡 আলাদা হওয়ার কৌশল</h3>
+        <ul>
+          <li><strong>উপাদানের স্বচ্ছতা:</strong> প্রতিটি উপকরণ লেবেলে লিখুন — প্রতিযোগীরা করে না</li>
+          <li><strong>কাস্টম অর্ডার:</strong> "আপনার মায়ের রেসিপিতে বানিয়ে দেব" — কেউ দেয় না</li>
+          <li><strong>তৈরির গল্প:</strong> প্রতিটি ব্যাচের ভিডিও দিন — বিশ্বাস তৈরি হবে</li>
+          <li><strong>গিফট প্যাকেজিং:</strong> সুন্দর বাক্সে গিফট সেট — প্রিমিয়াম মার্জিন</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: SEGMENT -->
+  <section class="section" id="achar-segment">
+    <div class="section-number">সেকশন ০৬</div>
+    <h2 class="section-title">ধাপ ৫ — Customer Segmentation</h2>
+    <p class="section-intro">
+      আচারের ক্রেতা বিভিন্ন ধরনের। প্রতিটি সেগমেন্টের চাহিদা আলাদা। শুরুতে একটি বেছে নিন — সফল হলে পরবর্তী সেগমেন্টে যান।
+    </p>
+
+    <div class="segment-grid">
+      <div class="seg-card s1">
+        <div class="seg-icon">👩</div>
+        <div class="seg-title">গৃহিণী ও কর্মজীবী নারী</div>
+        <div class="seg-sub">প্রধান টার্গেট — সারাদেশ থেকেই শুরু করুন</div>
+        <div class="seg-row"><span class="sk">বয়স</span><span class="sv">২০–৫০</span></div>
+        <div class="seg-row"><span class="sk">লোকেশন</span><span class="sv">সারা বাংলাদেশ</span></div>
+        <div class="seg-row"><span class="sk">মাসিক বাজেট</span><span class="sv">৩০০–৮০০ টাকা</span></div>
+        <div class="seg-row"><span class="sk">প্ল্যাটফর্ম</span><span class="sv">Facebook, WhatsApp</span></div>
+        <div class="seg-row"><span class="sk">চাহিদা</span><span class="sv">ঘরের মতো স্বাদ, নিরাপদ</span></div>
+      </div>
+      <div class="seg-card s2">
+        <div class="seg-icon">🎁</div>
+        <div class="seg-title">উপহার ক্রেতা</div>
+        <div class="seg-sub">হাই মার্জিন — উৎসব মৌসুমে সেরা</div>
+        <div class="seg-row"><span class="sk">বয়স</span><span class="sv">২৫–৫০</span></div>
+        <div class="seg-row"><span class="sk">লোকেশন</span><span class="sv">সারাদেশ + প্রবাসী</span></div>
+        <div class="seg-row"><span class="sk">মাসিক বাজেট</span><span class="sv">৫০০–২,৫০০ টাকা</span></div>
+        <div class="seg-row"><span class="sk">প্ল্যাটফর্ম</span><span class="sv">Instagram, Facebook</span></div>
+        <div class="seg-row"><span class="sk">চাহিদা</span><span class="sv">সুন্দর প্যাকেজিং, ভ্যারাইটি</span></div>
+      </div>
+      <div class="seg-card s3">
+        <div class="seg-icon">🍽️</div>
+        <div class="seg-title">রেস্তোরাঁ ও ক্যাটারিং</div>
+        <div class="seg-sub">বাল্ক অর্ডার — স্থিতিশীল আয়</div>
+        <div class="seg-row"><span class="sk">বয়স</span><span class="sv">যেকোনো</span></div>
+        <div class="seg-row"><span class="sk">লোকেশন</span><span class="sv">শহর এলাকা</span></div>
+        <div class="seg-row"><span class="sk">মাসিক বাজেট</span><span class="sv">৩,০০০–৩০,০০০+</span></div>
+        <div class="seg-row"><span class="sk">প্ল্যাটফর্ম</span><span class="sv">সরাসরি যোগাযোগ</span></div>
+        <div class="seg-row"><span class="sk">চাহিদা</span><span class="sv">কম দাম, নিয়মিত সাপ্লাই</span></div>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <p>"প্রথম থেকেই সারাদেশের নারী ক্রেতাদের টার্গেট করুন — শুধু ঢাকা নয়। Facebook-এ বুস্ট করলে রাজশাহী, সিলেট, বরিশাল সব জায়গা থেকে অর্ডার আসবে। উৎসব মৌসুমে গিফট সেগমেন্টে যান — সেখানে মার্জিন সবচেয়ে বেশি।"</p>
+    </div>
+  </section>
+
+  <!-- SECTION 7: PRICING -->
+  <section class="section" id="achar-pricing">
+    <div class="section-number">সেকশন ০৭</div>
+    <h2 class="section-title">ধাপ ৬ — Pricing Analysis</h2>
+    <p class="section-intro">
+      আচারের দাম নির্ধারণে সবচেয়ে বড় চ্যালেঞ্জ হলো — বাজারের সস্তা কোম্পানির আচারের সাথে তুলনা। আপনাকে "হাতে তৈরি প্রিমিয়াম" পজিশনিং ধরে রাখতে হবে এবং সেই দামেই বিক্রি করতে হবে।
+    </p>
+
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th>পণ্য (৪০০গ্রাম বোতল)</th>
+          <th>কাঁচামাল</th>
+          <th>প্যাকেজিং</th>
+          <th>মোট খরচ</th>
+          <th>বিক্রির দাম</th>
+          <th>লাভ (প্রতি বোতল)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>কাঁচা আমের আচার</strong></td>
+          <td>৫০–৭০ টাকা</td>
+          <td>৪০ টাকা</td>
+          <td class="price-num">৯০–১১০ টাকা</td>
+          <td class="price-num">২২০–২৮০ টাকা</td>
+          <td class="profit-num">১১০–১৭০ টাকা</td>
+        </tr>
+        <tr>
+          <td><strong>জলপাই আচার</strong></td>
+          <td>৬০–৯০ টাকা</td>
+          <td>৪০ টাকা</td>
+          <td class="price-num">১০০–১৩০ টাকা</td>
+          <td class="price-num">২৫০–৩২০ টাকা</td>
+          <td class="profit-num">১৫০–১৯০ টাকা</td>
+        </tr>
+        <tr>
+          <td><strong>তেঁতুলের চাটনি</strong></td>
+          <td>৪০–৬০ টাকা</td>
+          <td>৪০ টাকা</td>
+          <td class="price-num">৮০–১০০ টাকা</td>
+          <td class="price-num">২০০–২৫০ টাকা</td>
+          <td class="profit-num">১০০–১৫০ টাকা</td>
+        </tr>
+        <tr>
+          <td><strong>মিষ্টি আমচুর / চালতা</strong></td>
+          <td>৫৫–৮০ টাকা</td>
+          <td>৪০ টাকা</td>
+          <td class="price-num">৯৫–১২০ টাকা</td>
+          <td class="price-num">২৪০–৩০০ টাকা</td>
+          <td class="profit-num">১২০–১৮০ টাকা</td>
+        </tr>
+        <tr>
+          <td><strong>গিফট সেট (৩ বোতল)</strong></td>
+          <td>২৪০–৩০০ টাকা</td>
+          <td>১৫০ টাকা</td>
+          <td class="price-num">৩৯০–৪৫০ টাকা</td>
+          <td class="price-num">৭৫০–৯৫০ টাকা</td>
+          <td class="profit-num">৩৬০–৫০০ টাকা</td>
+        </tr>
+        <tr>
+          <td><strong>প্রিমিয়াম গিফট হ্যাম্পার (৫ বোতল)</strong></td>
+          <td>৪০০–৫০০ টাকা</td>
+          <td>২৫০ টাকা</td>
+          <td class="price-num">৬৫০–৭৫০ টাকা</td>
+          <td class="price-num">১,৩০০–১,৬০০ টাকা</td>
+          <td class="profit-num">৬৫০–৮৫০ টাকা</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="problem-box">
+      <h3>⚠️ আচারের Pricing-এ সবচেয়ে বড় ভুল</h3>
+      <p>Pran-এর আচার ৬০–৮০ টাকায় পাওয়া যায় দেখে নিজের দাম কম রাখবেন না। আপনার পণ্য সম্পূর্ণ আলাদা — হাতে তৈরি, কেমিক্যালমুক্ত, ঘরের মতো। এই পার্থক্য বোঝাতে পারলে মানুষ ৩–৪ গুণ বেশি দিতে রাজি থাকে। "সস্তা মানেই ভালো নয়" — এই বিশ্বাসটাই আপনার সবচেয়ে বড় মার্কেটিং বার্তা।</p>
+    </div>
+
+    <div class="two-col">
+      <div class="info-card">
+        <h3>💡 আচারে প্রিমিয়াম Pricing কৌশল</h3>
+        <ul>
+          <li>সুন্দর কাচের বোতল + হাতে লেখা লেবেল = ৩০–৪০% বেশি দামে বিক্রি</li>
+          <li>গিফট বাক্সে ৩/৫ বোতলের সেট — মার্জিন সবচেয়ে বেশি (৫০–৬০%)</li>
+          <li>কাস্টম অর্ডার: "নির্দিষ্ট রেসিপিতে বানানো আচার" — প্রিমিয়াম দাম নিন</li>
+          <li>সিজনাল লিমিটেড এডিশন — জলপাই মৌসুমে বিশেষ প্যাক</li>
+          <li>প্রথম অর্ডারে ১ বোতল ফ্রি দিন — রিপিট কাস্টমার তৈরি হবে</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>📊 মোট খরচের হিসাব (প্রতি বোতল)</h3>
+        <ul>
+          <li>কাঁচামাল (আম/জলপাই/মশলা): ৫০–৯০ টাকা</li>
+          <li>সরিষার তেল: ২০–৩০ টাকা</li>
+          <li>কাচের বোতল ও ঢাকনা: ২৫–৩৫ টাকা</li>
+          <li>লেবেল ও স্টিকার: ৫–৮ টাকা</li>
+          <li>প্যাকেজিং উপকরণ: ৮–১২ টাকা</li>
+          <li><strong>লক্ষ্য মার্জিন: ৪৫–৬০% (প্রতিটি বোতলে)</strong></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: DECISION -->
+  <section class="section" id="achar-decision">
+    <div class="section-number">সেকশন ০৮</div>
+    <h2 class="section-title">ধাপ ৭ — Data Analysis ও চূড়ান্ত সিদ্ধান্ত</h2>
+    <p class="section-intro">
+      সব Research শেষ হলে এবার ডেটা বিশ্লেষণ করুন এবং ব্যবসার চূড়ান্ত সিদ্ধান্ত নিন। এটাই Research-এর সবচেয়ে গুরুত্বপূর্ণ ধাপ।
+    </p>
+
+    <!-- THREE COLUMN KANBAN STYLE -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px;">
+
+      <!-- COLUMN 1: Data -->
+      <div style="background:#fff;border:1px solid rgba(124,45,18,0.15);border-radius:14px;overflow:hidden;">
+        <div style="background:linear-gradient(135deg,#7c2d12,#9a3412);padding:14px 18px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:4px;">ধাপ ক</div>
+          <div style="font-size:15px;font-weight:700;color:#fff;display:flex;align-items:center;gap:8px;"><span>📊</span> ডেটা একত্রিত করুন</div>
+        </div>
+        <div style="padding:18px;">
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#3d3d3a;line-height:1.6;">
+              <span style="width:20px;height:20px;border-radius:50%;background:#fef3c7;border:2px solid #d97706;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#d97706;flex-shrink:0;margin-top:1px;">✓</span>
+              সার্ভে ডেটা Google Sheet-এ আনুন
+            </li>
+            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#3d3d3a;line-height:1.6;">
+              <span style="width:20px;height:20px;border-radius:50%;background:#fef3c7;border:2px solid #d97706;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#d97706;flex-shrink:0;margin-top:1px;">✓</span>
+              Taste Test স্কোর প্রতিটি আচারের জন্য আলাদা করুন
+            </li>
+            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#3d3d3a;line-height:1.6;">
+              <span style="width:20px;height:20px;border-radius:50%;background:#fef3c7;border:2px solid #d97706;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#d97706;flex-shrink:0;margin-top:1px;">✓</span>
+              দাম গ্রহণযোগ্যতার শতকরা হিসাব করুন
+            </li>
+            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#3d3d3a;line-height:1.6;">
+              <span style="width:20px;height:20px;border-radius:50%;background:#fef3c7;border:2px solid #d97706;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#d97706;flex-shrink:0;margin-top:1px;">✓</span>
+              সবচেয়ে জনপ্রিয় ৩টি আচার চিহ্নিত করুন
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- COLUMN 2: Product -->
+      <div style="background:#fff;border:1px solid rgba(124,45,18,0.15);border-radius:14px;overflow:hidden;">
+        <div style="background:linear-gradient(135deg,#b45309,#d97706);padding:14px 18px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:4px;">ধাপ খ</div>
+          <div style="font-size:15px;font-weight:700;color:#fff;display:flex;align-items:center;gap:8px;"><span>🥒</span> ৩টি পণ্য চূড়ান্ত করুন</div>
+        </div>
+        <div style="padding:18px;">
+          <div style="font-size:13px;color:#6b7280;margin-bottom:14px;line-height:1.6;">সার্ভে + Taste Test — দুইয়েই ভালো করেছে এমন ৩টি আচার বেছে নিন। গিফট সেটে মার্জিন সবচেয়ে বেশি।</div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="background:#fef3c7;border:1px solid #fbbf24;border-radius:8px;padding:10px 12px;font-size:13px;font-weight:600;color:#92400e;display:flex;align-items:center;gap:8px;"><span>🥭</span> কাঁচা আমের আচার</div>
+            <div style="background:#fef3c7;border:1px solid #fbbf24;border-radius:8px;padding:10px 12px;font-size:13px;font-weight:600;color:#92400e;display:flex;align-items:center;gap:8px;"><span>🫒</span> জলপাই আচার</div>
+            <div style="background:#fef3c7;border:1px solid #fbbf24;border-radius:8px;padding:10px 12px;font-size:13px;font-weight:600;color:#92400e;display:flex;align-items:center;gap:8px;"><span>🫙</span> তেঁতুলের চাটনি</div>
+            <div style="background:rgba(124,45,18,0.08);border:1px dashed rgba(124,45,18,0.3);border-radius:8px;padding:10px 12px;font-size:13px;font-weight:600;color:#7c2d12;display:flex;align-items:center;gap:8px;"><span>🎁</span> ৩-বোতল গিফট সেট</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COLUMN 3: Plan -->
+      <div style="background:#fff;border:1px solid rgba(124,45,18,0.15);border-radius:14px;overflow:hidden;">
+        <div style="background:linear-gradient(135deg,#065f46,#2d6a4f);padding:14px 18px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:4px;">ধাপ গ</div>
+          <div style="font-size:15px;font-weight:700;color:#fff;display:flex;align-items:center;gap:8px;"><span>📄</span> Business Plan লিখুন</div>
+        </div>
+        <div style="padding:18px;">
+          <div style="font-size:13px;color:#6b7280;margin-bottom:12px;line-height:1.6;">১ পাতায় মূল বিষয়গুলো লিখলেই যথেষ্ট। ১০০ পাতার পরিকল্পনার দরকার নেই।</div>
+          <div style="background:#f8faf9;border-radius:8px;padding:12px 14px;">
+            <pre style="font-family:'Hind Siliguri',sans-serif;font-size:12px;color:#3d3d3a;line-height:1.85;white-space:pre-wrap;">নাম   : BRD Achar / আচার ঘর
+পণ্য  : আম, জলপাই, তেঁতুল চাটনি
+ক্রেতা: ঢাকা, ২৮–৪৫, Facebook ব্যবহারকারী
+দাম  : আম ২২০–২৮০, জলপাই ২৫০–৩২০
+মাস ১ : ৩০ অর্ডার, ২০,০০০ টাকা
+বিনিয়োগ: ১২,০০০–১৫,০০০ টাকা</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM TIP -->
+    <div style="background:linear-gradient(135deg,rgba(124,45,18,0.08),rgba(217,119,6,0.08));border:1px solid rgba(217,119,6,0.25);border-radius:14px;padding:24px 28px;display:flex;align-items:flex-start;gap:16px;">
+      <span style="font-size:32px;flex-shrink:0;">🏆</span>
+      <div>
+        <div style="font-size:15px;font-weight:700;color:#7c2d12;margin-bottom:8px;">সবচেয়ে গুরুত্বপূর্ণ পরামর্শ</div>
+        <div style="font-size:14px;color:#3d3d3a;line-height:1.75;">আচার ব্যবসায় <strong>বিশ্বাসই সব।</strong> প্রথম ১০টি অর্ডার পরিচিতদের দিন — তাদের রিভিউ ও ছবি নিন। এই সোশ্যাল প্রুফ ছাড়া অপরিচিতরা অনলাইনে আচার কিনতে সাহস করবেন না।</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 9: SWOT -->
+  <section class="section" id="achar-swot">
+    <div class="section-number">সেকশন ০৯</div>
+    <h2 class="section-title">SWOT বিশ্লেষণ</h2>
+    <p class="section-intro">
+      আচার ব্যবসার শক্তি, দুর্বলতা, সুযোগ ও ঝুঁকির পূর্ণাঙ্গ বিশ্লেষণ।
+    </p>
+
+    <div class="swot-grid">
+      <div class="swot-card strength">
+        <h3>↑ শক্তি (Strengths)</h3>
+        <ul>
+          <li>সারা বছর চাহিদা — কোনো off-season নেই মূল আচারে</li>
+          <li>কম পুঁজিতে শুরু — ১২,০০০–১৫,০০০ টাকায় প্রথম ব্যাচ</li>
+          <li>হাতে তৈরি, কেমিক্যালমুক্ত — বড় কোম্পানি এটা দিতে পারে না</li>
+          <li>রেসিপি কাস্টমাইজেশন — মিষ্টি/ঝাল/টক পছন্দমতো</li>
+          <li>উপহার বাজার — আচারের সেট একটি অনন্য গিফট আইটেম</li>
+          <li>চট্টগ্রামের সাথে সংযোগ — অনন্য স্বাদ ও ব্র্যান্ড গল্প</li>
+        </ul>
+      </div>
+      <div class="swot-card weakness">
+        <h3>↓ দুর্বলতা (Weaknesses)</h3>
+        <ul>
+          <li>শেলফ লাইফ সীমিত — কেমিক্যালমুক্ত হওয়ায় দ্রুত শেষ করতে হয়</li>
+          <li>তেল ছাড়া হওয়ায় ডেলিভারিতে লিকেজের ঝুঁকি</li>
+          <li>কাঁচামালের দাম মৌসুমভেদে ওঠানামা করে</li>
+          <li>হাতে তৈরি বলে ব্যাচ-টু-ব্যাচ একটু স্বাদের তারতম্য হতে পারে</li>
+          <li>নতুন ব্র্যান্ড — বিশ্বাস অর্জনে সময় লাগবে</li>
+        </ul>
+      </div>
+      <div class="swot-card opportunity">
+        <h3>→ সুযোগ (Opportunities)</h3>
+        <ul>
+          <li>অনলাইনে হাতে তৈরি আচারের অর্গানাইজড মার্কেট প্রায় শূন্য</li>
+          <li>ঈদ, পূজা, বিবাহ — উৎসব গিফট হ্যাম্পারের বিশাল বাজার</li>
+          <li>প্রবাসী বাংলাদেশি — দেশীয় আচারের জন্য ৫০–১০০% বেশি দিতে রাজি</li>
+          <li>ফুড ব্লগার ও কনটেন্ট ক্রিয়েটরদের সাথে কোলাব সুযোগ</li>
+          <li>Chaldal/Shajgoj-এ ভবিষ্যতে যোগ দেওয়ার সুযোগ</li>
+          <li>স্বাস্থ্য সচেতন মানুষ — কেমিক্যালমুক্ত পণ্যের চাহিদা বাড়ছে</li>
+        </ul>
+      </div>
+      <div class="swot-card threat">
+        <h3>! ঝুঁকি (Threats)</h3>
+        <ul>
+          <li>কাঁচামালের দাম হঠাৎ বেড়ে গেলে মার্জিন কমে যাবে</li>
+          <li>Copycat — আপনার রেসিপি ও প্যাকেজিং অন্যরা নকল করতে পারে</li>
+          <li>ডেলিভারিতে বোতল ভাঙলে রিফান্ড ও নেগেটিভ রিভিউর ঝুঁকি</li>
+          <li>BSTI সার্টিফিকেশন ছাড়া বড় প্ল্যাটফর্মে যোগ দেওয়া কঠিন</li>
+          <li>গ্রাহকের স্বাদের পরিবর্তন — কেউ হয়তো একটু বেশি মিষ্টি চাইবেন</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 10: TIMELINE -->
+  <section class="section" id="achar-timeline">
+    <div class="section-number">সেকশন ১০</div>
+    <h2 class="section-title">Research থেকে Launch — টাইমলাইন</h2>
+    <p class="section-intro">
+      আচার ব্যবসার Market Analysis শেষ করে লঞ্চ পর্যন্ত বাস্তবসম্মত রোডম্যাপ। মোট সময়: ৬–৭ সপ্তাহ।
+    </p>
+
+    <!-- WEEK TILES — horizontal scroll -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px;">
+
+      <div style="background:#fff;border:1px solid rgba(124,45,18,0.15);border-radius:14px;padding:20px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#7c2d12,#d97706);"></div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:#d97706;text-transform:uppercase;margin-bottom:6px;">সপ্তাহ ১</div>
+        <div style="font-size:15px;font-weight:700;color:#1b1b1b;margin-bottom:8px;">Desk Research</div>
+        <div style="font-size:13px;color:#6b7280;line-height:1.65;">Facebook পেজ ও গ্রুপ বিশ্লেষণ, Daraz/Chaldal প্রতিযোগী দেখা, Google Trends চেক। ৬–৮টি প্রতিযোগীর Competitor Matrix তৈরি।</div>
+      </div>
+
+      <div style="background:#fff;border:1px solid rgba(124,45,18,0.15);border-radius:14px;padding:20px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#d97706,#f59e0b);"></div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:#d97706;text-transform:uppercase;margin-bottom:6px;">সপ্তাহ ২</div>
+        <div style="font-size:15px;font-weight:700;color:#1b1b1b;margin-bottom:8px;">Survey + Taste Test</div>
+        <div style="font-size:13px;color:#6b7280;line-height:1.65;">Google Forms সার্ভে ছড়িয়ে দিন। একই সাথে ১০–১৫ জনকে ৩ ধরনের আচারের স্যাম্পল দিন। লক্ষ্য: ৪০–৬০টি সার্ভে উত্তর।</div>
+      </div>
+
+      <div style="background:#fff;border:1px solid rgba(124,45,18,0.15);border-radius:14px;padding:20px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#f59e0b,#fbbf24);"></div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:#d97706;text-transform:uppercase;margin-bottom:6px;">সপ্তাহ ৩</div>
+        <div style="font-size:15px;font-weight:700;color:#1b1b1b;margin-bottom:8px;">কাঁচামাল ও বোতল</div>
+        <div style="font-size:13px;color:#6b7280;line-height:1.65;">কাঁচাবাজার ও পাইকারি মশলার দোকানে যান। কাচের বোতলের সাপ্লায়ার খুঁজুন। দাম ও মিনিমাম অর্ডার জানুন।</div>
+      </div>
+
+      <div style="background:#fff;border:1px solid rgba(124,45,18,0.15);border-radius:14px;padding:20px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#2d6a4f,#40916c);"></div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:#2d6a4f;text-transform:uppercase;margin-bottom:6px;">সপ্তাহ ৪</div>
+        <div style="font-size:15px;font-weight:700;color:#1b1b1b;margin-bottom:8px;">Analysis & সিদ্ধান্ত</div>
+        <div style="font-size:13px;color:#6b7280;line-height:1.65;">সার্ভে ও Taste Test ডেটা Google Sheet-এ বিশ্লেষণ। শীর্ষ ৩টি আচার চূড়ান্ত, দাম নির্ধারণ, SWOT সম্পন্ন।</div>
+      </div>
+
+      <div style="background:#fff;border:1px solid rgba(124,45,18,0.15);border-radius:14px;padding:20px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#40916c,#74c69d);"></div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:#40916c;text-transform:uppercase;margin-bottom:6px;">সপ্তাহ ৫</div>
+        <div style="font-size:15px;font-weight:700;color:#1b1b1b;margin-bottom:8px;">ব্র্যান্ড তৈরি</div>
+        <div style="font-size:13px;color:#6b7280;line-height:1.65;">Canva দিয়ে লেবেল ডিজাইন। Facebook Page তৈরি ও প্রথম ৫টি কনটেন্ট পোস্ট। পরিচিতদের Page লাইক করতে বলুন।</div>
+      </div>
+
+      <div style="background:linear-gradient(135deg,rgba(124,45,18,0.05),rgba(251,191,36,0.07));border:1.5px solid rgba(217,119,6,0.3);border-radius:14px;padding:20px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#d97706,#7c2d12);"></div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:#d97706;text-transform:uppercase;margin-bottom:6px;">সপ্তাহ ৬–৭ 🚀</div>
+        <div style="font-size:15px;font-weight:700;color:#7c2d12;margin-bottom:8px;">Soft Launch!</div>
+        <div style="font-size:13px;color:#92400e;line-height:1.65;">প্রথম ব্যাচ তৈরি, পরিচিতদের কাছে বিক্রি, ধন্যবাদ কার্ড দিন, রিভিউ সংগ্রহ করুন। ফিডব্যাক দিয়ে পরবর্তী ব্যাচ আরো উন্নত করুন।</div>
+      </div>
+
+    </div>
+
+    <div class="kpi-row">
+      <div class="kpi-card">
+        <div class="kpi-icon">📋</div>
+        <div class="kpi-value">৪০–৬০</div>
+        <div class="kpi-label">সার্ভে উত্তর সংগ্রহের লক্ষ্য</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon">🥒</div>
+        <div class="kpi-value">৩</div>
+        <div class="kpi-label">প্রথমে এই কটি আচার দিয়ে শুরু</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon">💰</div>
+        <div class="kpi-value">১৫,০০০</div>
+        <div class="kpi-label">টাকায় প্রথম ব্যাচ শুরু সম্ভব</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon">⭐</div>
+        <div class="kpi-value">১০+</div>
+        <div class="kpi-label">প্রথম মাসে রিভিউ সংগ্রহের লক্ষ্য</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon">📅</div>
+        <div class="kpi-value">৬–৭ সপ্তাহ</div>
+        <div class="kpi-label">Research থেকে Launch পর্যন্ত</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer" style="background:linear-gradient(135deg,#7c2d12,#1a3d2b);">
+  <strong>আচার ব্যবসা — Market Analysis & Research Document</strong><br>
+  ভার্সন ১.০ · মার্চ ২০২৬ · এই ডকুমেন্টটি গোপনীয়
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!--  PORTAL BAR (always visible)          -->
+<!-- ═══════════════════════════════════════ -->
+<div class="portal-bar" role="tablist">
+  <button class="portal-tab active" id="tab-brd" onclick="switchDoc('brd')" role="tab" aria-selected="true">
+    <span class="tab-icon">📋</span>
+    <span class="tab-label">
+      <span class="tab-title">BRD</span>
+      <span class="tab-subtitle">Business Requirements</span>
+    </span>
+  </button>
+  <div class="portal-divider"></div>
+  <button class="portal-tab" id="tab-market" onclick="switchDoc('market')" role="tab" aria-selected="false">
+    <span class="tab-icon">🐟</span>
+    <span class="tab-label">
+      <span class="tab-title">শুঁটকি অ্যানালাইসিস</span>
+      <span class="tab-subtitle">Shutki Market Research</span>
+    </span>
+  </button>
+  <div class="portal-divider"></div>
+  <button class="portal-tab" id="tab-achar" onclick="switchDoc('achar')" role="tab" aria-selected="false">
+    <span class="tab-icon">🥒</span>
+    <span class="tab-label">
+      <span class="tab-title">আচার অ্যানালাইসিস</span>
+      <span class="tab-subtitle">Achar Market Research</span>
+    </span>
+  </button>
+</div>
+
+<script>
+  function switchDoc(which) {
+    // Hide all panels
+    document.querySelectorAll('.doc-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.portal-tab').forEach(t => {
+      t.classList.remove('active');
+      t.setAttribute('aria-selected', 'false');
+    });
+
+    // Show selected
+    document.getElementById('panel-' + which).classList.add('active');
+    document.getElementById('tab-' + which).classList.add('active');
+    document.getElementById('tab-' + which).setAttribute('aria-selected', 'true');
+
+    // Scroll to top smoothly
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
